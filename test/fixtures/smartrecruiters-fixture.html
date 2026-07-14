@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Operations Analyst | Acme (SmartRecruiters)</title></head>
+  <body>
+    <!-- SmartRecruiters-shaped apply form (client-rendered in reality; static here). Detected as
+         SMARTRECRUITERS via its distinctive markers (data-ats + smartrecruiters/sr-app-form classes).
+         It avoids Greenhouse's #first_name+#email id signature, Lever's .application-form marker, and
+         Ashby's .ashby-* classes, so pickAdapter (Lever -> Ashby -> SmartRecruiters -> Greenhouse)
+         lands on SmartRecruiters. Every field maps to a USER-CONFIRMED value. -->
+    <div id="root" class="smartrecruiters-application" data-ats="smartrecruiters">
+      <div class="sr-app-form-container">
+        <h2>Operations Analyst</h2>
+        <form class="sr-app-form" method="POST" action="/acme/apply">
+          <div class="sr-app-field">
+            <label for="sr_first">First Name *</label>
+            <input id="sr_first" name="sr_first" type="text" required />
+          </div>
+          <div class="sr-app-field">
+            <label for="sr_last">Last Name *</label>
+            <input id="sr_last" name="sr_last" type="text" required />
+          </div>
+          <div class="sr-app-field">
+            <label for="sr_email">Email *</label>
+            <input id="sr_email" name="sr_email" type="email" required />
+          </div>
+          <div class="sr-app-field">
+            <label for="sr_phone">Phone</label>
+            <input id="sr_phone" name="sr_phone" type="tel" />
+          </div>
+          <div class="sr-app-field">
+            <label for="sr_auth">Are you authorized to work in the United States? *</label>
+            <select id="sr_auth" name="sr_auth" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <div class="sr-app-field">
+            <label for="sr_age">Are you at least 18 years of age? *</label>
+            <select id="sr_age" name="sr_age" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <button type="submit" class="sr-app-submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      window.__submitted = false;
+      document.querySelector("form.sr-app-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__submitted = true;
+      });
+    </script>
+  </body>
+</html>

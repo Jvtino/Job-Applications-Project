@@ -1,0 +1,15 @@
+Operations Analyst
+Acme Corp - San Francisco, CA
+
+About the role
+We are hiring an Operations Analyst to improve claims review, reduce backlog, and speed up reporting.
+
+Requirements
+- 3+ years of experience in operations or claims analysis
+- Strong SQL and Tableau skills
+- Experience reducing backlog and improving reporting time
+- Bachelor's degree in a quantitative field
+
+Nice to have
+- Lean Six Sigma certification
+- Dashboard development experience

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ApplyPilot Sunrise UI</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="app-page theme-sunrise">
+  <main class="product-shell command-layout sunrise-upgrade" aria-label="ApplyPilot automation dashboard">
+    <aside class="side-rail sunrise-rail">
+      <div class="brand-lockup">
+        <span class="brand-mark">AP</span>
+        <span>ApplyPilot</span>
+      </div>
+      <div class="pilot-card">
+        <span class="avatar">AK</span>
+        <div>
+          <strong>Ahmet Kaya</strong>
+          <small>Senior product leadership</small>
+        </div>
+      </div>
+      <nav class="rail-nav" aria-label="Primary navigation">
+        <a class="active" href="#"><svg class="icon"><use href="#i-play"></use></svg>Automated</a>
+        <a href="#"><svg class="icon"><use href="#i-send"></use></svg>One-click</a>
+        <a href="#"><svg class="icon"><use href="#i-check"></use></svg>Applied</a>
+        <a href="#"><svg class="icon"><use href="#i-shield"></use></svg>Rules</a>
+      </nav>
+      <div class="rail-score">
+        <div>
+          <p class="eyebrow">Automated today</p>
+          <strong>14 applications sent</strong>
+          <span>Only roles that cleared your fit, salary, and location rules.</span>
+        </div>
+        <div class="tiny-bars" aria-hidden="true">
+          <i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+      <div class="rail-card">
+        <p class="eyebrow">Semi automated</p>
+        <strong>7 ready to click</strong>
+        <span>Everything is filled, tailored, and waiting for your Apply button.</span>
+      </div>
+    </aside>
+
+    <section class="main-stack sunrise-main">
+      <header class="workspace-header sunrise-header">
+        <div>
+          <p class="eyebrow">Automation command center</p>
+          <h1>Auto-apply to roles that match your rules. One-click the rest.</h1>
+        </div>
+        <div class="header-actions">
+          <button class="icon-button notification-dot" type="button" aria-label="Notifications">
+            <svg class="icon"><use href="#i-bell"></use></svg>
+          </button>
+          <button class="button secondary" type="button" data-toast="Automation rules opened">
+            <svg class="icon"><use href="#i-settings"></use></svg>
+            Rules
+          </button>
+          <button class="button primary" type="button" data-toast="Automation run started">
+            <svg class="icon"><use href="#i-play"></use></svg>
+            Run automation
+          </button>
+        </div>
+      </header>
+
+      <section class="sunrise-command-hero automation-first">
+        <div class="panel hero-console automation-console">
+          <div class="hero-copy-block">
+            <div class="hero-live-pill">
+              <span class="status-dot live"></span>
+              Automated mode live
+            </div>
+            <h2>Applications are being completed for roles that clear your rules.</h2>
+            <p>ApplyPilot searches, ranks, tailors, fills, and submits when the role is inside your safe automation zone.</p>
+            <div class="hero-queries" aria-label="Automation rules">
+              <span>92% fit minimum</span>
+              <span>$160k+ verified</span>
+              <span>Remote or NYC</span>
+              <span>No relocation</span>
+            </div>
+          </div>
+
+          <div class="scan-stage" aria-label="Automated application visualization">
+            <img src="assets/jobflow-artwork.png" alt="Abstract resume and job matching interface artwork">
+            <div class="scan-card scan-card-one">
+              <span class="company-dot teal"></span>
+              <div><strong>Auto-sent</strong><small>Daybreak AI</small></div>
+            </div>
+            <div class="scan-card scan-card-two">
+              <span class="company-dot coral"></span>
+              <div><strong>Drafting</strong><small>Northstar Labs</small></div>
+            </div>
+            <div class="scan-card scan-card-three">
+              <span class="company-dot yellow"></span>
+              <div><strong>Skipped</strong><small>Travel required</small></div>
+            </div>
+          </div>
+
+          <div class="hero-metrics" aria-label="Automation metrics">
+            <article><strong>14</strong><span>auto-applied</span></article>
+            <article><strong>23</strong><span>qualified roles</span></article>
+            <article><strong>7</strong><span>need one click</span></article>
+            <article><strong>21</strong><span>applied total</span></article>
+          </div>
+        </div>
+
+        <aside class="panel semi-auto-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Second mode</p>
+              <h2>One-click queue</h2>
+            </div>
+            <strong class="score-badge">7</strong>
+          </div>
+          <div class="queue-list click-queue">
+            <div class="one-click-item">
+              <div>
+                <strong>Northstar Labs</strong>
+                <small>Equity answer needs your preference</small>
+              </div>
+              <button class="button compact" type="button" data-modal="one-click" data-company="Northstar Labs" data-role="Head of Product, Applied AI">
+                <svg class="icon"><use href="#i-send"></use></svg>
+                Apply
+              </button>
+            </div>
+            <div class="one-click-item">
+              <div>
+                <strong>Copperline</strong>
+                <small>Hybrid schedule needs approval</small>
+              </div>
+              <button class="button compact" type="button" data-modal="one-click" data-company="Copperline" data-role="Growth Product Lead">
+                <svg class="icon"><use href="#i-send"></use></svg>
+                Apply
+              </button>
+            </div>
+            <div class="one-click-item">
+              <div>
+                <strong>Bright Cart</strong>
+                <small>Salary range is close to threshold</small>
+              </div>
+              <button class="button compact" type="button" data-modal="one-click" data-company="Bright Cart" data-role="Director, Product Operations">
+                <svg class="icon"><use href="#i-send"></use></svg>
+                Apply
+              </button>
+            </div>
+          </div>
+          <button class="button primary full" type="button" data-modal="one-click" data-company="7 prepared applications" data-role="Batch one-click apply">
+            <svg class="icon"><use href="#i-send"></use></svg>
+            Apply all 7
+          </button>
+        </aside>
+      </section>
+
+      <section class="panel progress-dashboard">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Progress dashboard</p>
+            <h2>This week’s application engine</h2>
+          </div>
+          <button class="button ghost" type="button" data-toast="Analytics refreshed">
+            <svg class="icon"><use href="#i-clock"></use></svg>
+            Refresh
+          </button>
+        </div>
+        <div class="progress-grid">
+          <article class="progress-card">
+            <strong>63</strong>
+            <span>applications sent</span>
+            <div class="mini-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="progress-card">
+            <strong>18%</strong>
+            <span>reply rate</span>
+            <div class="match-meter" aria-label="Reply rate"><span style="width: 72%"></span></div>
+          </article>
+          <article class="progress-card">
+            <strong>7</strong>
+            <span>interviews booked</span>
+            <div class="mini-chart blue" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="progress-card">
+            <strong>11.4h</strong>
+            <span>estimated time saved</span>
+            <div class="match-meter" aria-label="Time saved"><span style="width: 86%"></span></div>
+          </article>
+        </div>
+        <div class="resume-version-strip">
+          <span><b>Best resume version</b> AI workflow leadership</span>
+          <span><b>Top role cluster</b> Applied AI product</span>
+          <span><b>Best source</b> Company career pages</span>
+        </div>
+      </section>
+
+      <section class="sunrise-grid">
+        <div class="panel automated-section span-2">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Primary mode</p>
+              <h2>Automated applications</h2>
+            </div>
+            <div class="match-actions">
+              <button class="button ghost" type="button" data-toast="Automation paused">
+                <svg class="icon"><use href="#i-pause"></use></svg>
+                Pause
+              </button>
+              <button class="button secondary" type="button" data-toast="Automation rules opened">
+                <svg class="icon"><use href="#i-shield"></use></svg>
+                Rules
+              </button>
+            </div>
+          </div>
+
+          <div class="automation-run-card">
+            <div class="run-status">
+              <span class="metric-icon teal"><svg class="icon"><use href="#i-play"></use></svg></span>
+              <div>
+                <h3>Applying now: Staff Product Manager</h3>
+                <p>Daybreak AI • Remote US • clears fit, salary, location, and answer confidence</p>
+              </div>
+            </div>
+            <strong class="fit-pill">Auto</strong>
+            <button class="button secondary inspect-button" type="button" data-drawer="job-detail" data-company="Daybreak AI" data-role="Staff Product Manager">
+              <svg class="icon"><use href="#i-file"></use></svg>
+              Inspect packet
+            </button>
+            <div class="automation-progress">
+              <span><b>1</b> Resume tailored</span>
+              <span><b>2</b> Questions filled</span>
+              <span><b>3</b> Submitting</span>
+            </div>
+            <div class="match-meter" aria-label="Auto apply progress"><span style="width: 74%"></span></div>
+          </div>
+
+          <div class="automation-job-grid">
+            <article>
+              <span class="company-dot teal"></span>
+              <div><h3>Senior PM, Automation</h3><p>Fable Works • queued for auto-submit</p></div>
+              <strong>94 fit</strong>
+              <button class="mini-icon" type="button" aria-label="Inspect Fable Works" data-drawer="job-detail" data-company="Fable Works" data-role="Senior PM, Automation">
+                <svg class="icon"><use href="#i-file"></use></svg>
+              </button>
+            </article>
+            <article>
+              <span class="company-dot blue"></span>
+              <div><h3>Product Lead, AI Tools</h3><p>Orbit Desk • tailoring answers</p></div>
+              <strong>93 fit</strong>
+              <button class="mini-icon" type="button" aria-label="Inspect Orbit Desk" data-drawer="job-detail" data-company="Orbit Desk" data-role="Product Lead, AI Tools">
+                <svg class="icon"><use href="#i-file"></use></svg>
+              </button>
+            </article>
+          </div>
+        </div>
+
+        <aside class="panel preflight-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Preflight safety</p>
+              <h2>Safe to send</h2>
+            </div>
+            <strong class="score-badge">5/5</strong>
+          </div>
+          <div class="preflight-list">
+            <span><svg class="icon"><use href="#i-check"></use></svg> Resume tailored to role</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Salary clears threshold</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Location matches rules</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Required answers filled</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Job post looks legitimate</span>
+          </div>
+          <button class="button primary full" type="button" data-drawer="job-detail" data-company="Daybreak AI" data-role="Staff Product Manager">
+            <svg class="icon"><use href="#i-shield"></use></svg>
+            View packet
+          </button>
+        </aside>
+
+        <div class="panel applied-section span-2">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Done applications</p>
+              <h2>Applied tracker</h2>
+            </div>
+            <div class="match-actions">
+              <button class="button ghost" type="button" data-toast="Applied list filtered">
+                <svg class="icon"><use href="#i-filter"></use></svg>
+                Filter
+              </button>
+              <button class="button secondary" type="button" data-toast="Follow-ups scheduled">
+                <svg class="icon"><use href="#i-clock"></use></svg>
+                Follow-ups
+              </button>
+            </div>
+          </div>
+
+          <div class="applied-summary">
+            <article><strong>21</strong><span>applications sent</span></article>
+            <article><strong>6</strong><span>company replies</span></article>
+            <article><strong>3</strong><span>interviews booked</span></article>
+            <article><strong>5</strong><span>follow-ups due</span></article>
+          </div>
+
+          <div class="crm-pipeline" aria-label="Application CRM status">
+            <span class="is-active">Submitted <b>12</b></span>
+            <span>Response <b>6</b></span>
+            <span>Interview <b>3</b></span>
+            <span>Rejected <b>4</b></span>
+            <span>Offer <b>0</b></span>
+          </div>
+
+          <div class="applied-list">
+            <article class="applied-row">
+              <span class="applied-status sent"><svg class="icon"><use href="#i-check"></use></svg></span>
+              <div>
+                <h3>Daybreak AI</h3>
+                <p>Staff Product Manager • auto-applied today at 9:42 PM</p>
+              </div>
+              <span class="applied-tag">Submitted</span>
+              <button class="button compact" type="button" data-drawer="job-detail" data-company="Daybreak AI" data-role="Staff Product Manager">
+                Details
+              </button>
+            </article>
+            <article class="applied-row">
+              <span class="applied-status reply"><svg class="icon"><use href="#i-bell"></use></svg></span>
+              <div>
+                <h3>Fable Works</h3>
+                <p>Senior PM, Automation • recruiter replied 2 hours ago</p>
+              </div>
+              <span class="applied-tag reply">Response</span>
+              <button class="button compact" type="button" data-toast="Opened reply draft">
+                Reply
+              </button>
+            </article>
+            <article class="applied-row">
+              <span class="applied-status interview"><svg class="icon"><use href="#i-clock"></use></svg></span>
+              <div>
+                <h3>Orbit Desk</h3>
+                <p>Product Lead, AI Tools • interview scheduled Friday</p>
+              </div>
+              <span class="applied-tag interview">Interview</span>
+              <button class="button compact" type="button" data-toast="Opened interview prep">
+                Prep
+              </button>
+            </article>
+          </div>
+        </div>
+
+        <aside class="panel automation-rules">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Automation rules</p>
+              <h2>Safe zone</h2>
+            </div>
+            <strong class="score-badge">ON</strong>
+          </div>
+          <div class="rules-builder">
+            <label>
+              <span>Minimum fit score <b>92%</b></span>
+              <input type="range" min="70" max="100" value="92">
+            </label>
+            <label>
+              <span>Minimum base salary <b>$160k</b></span>
+              <input type="range" min="90" max="240" value="160">
+            </label>
+          </div>
+          <div class="rules-stack">
+            <span><svg class="icon"><use href="#i-check"></use></svg> Auto-submit when all rules pass</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Send custom-answer roles to one-click</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Exclude relocation, contract-only, and unpaid trials</span>
+            <span><svg class="icon"><use href="#i-clock"></use></svg> Follow up after 5 business days</span>
+          </div>
+          <div class="block-list">
+            <p class="eyebrow">Blocked companies</p>
+            <span>Acme Staffing</span>
+            <span>LowSignal Jobs</span>
+            <span>Unknown salary</span>
+          </div>
+          <div class="automation-meter">
+            <div><strong>87%</strong><span>of today’s safe roles automated</span></div>
+            <div class="match-meter" aria-label="Automation coverage meter"><span style="width: 87%"></span></div>
+          </div>
+          <button class="button secondary full" type="button" data-toast="Rules ready to edit">
+            <svg class="icon"><use href="#i-settings"></use></svg>
+            Adjust rules
+          </button>
+        </aside>
+
+        <div class="panel packet-panel">
+          <p class="eyebrow">Semi automated packet</p>
+          <h2>Prepared before you click</h2>
+          <div class="packet-list">
+            <span><svg class="icon"><use href="#i-check"></use></svg> Tailored resume</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Cover note</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Form answers</span>
+            <span><svg class="icon"><use href="#i-check"></use></svg> Company notes</span>
+          </div>
+        </div>
+
+        <div class="panel sunrise-cardlet">
+          <p class="eyebrow">Automation coverage</p>
+          <h2>Where it looked</h2>
+          <div class="source-stack">
+            <span><strong>42</strong> company pages</span>
+            <span><strong>31</strong> job boards</span>
+            <span><strong>12</strong> referral paths</span>
+          </div>
+        </div>
+
+        <div class="panel activity-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Automation log</p>
+              <h2>What the app did</h2>
+            </div>
+            <button class="button ghost" type="button" data-toast="Activity refreshed">
+              <svg class="icon"><use href="#i-clock"></use></svg>
+              Refresh
+            </button>
+          </div>
+          <div class="activity-list">
+            <article>
+              <span class="activity-dot teal"></span>
+              <div><strong>9:42 PM</strong><p>Auto-submitted Daybreak AI after fit, salary, and location checks passed.</p></div>
+            </article>
+            <article>
+              <span class="activity-dot yellow"></span>
+              <div><strong>9:38 PM</strong><p>Moved Northstar to one-click because the equity answer needs preference approval.</p></div>
+            </article>
+            <article>
+              <span class="activity-dot coral"></span>
+              <div><strong>9:31 PM</strong><p>Skipped a role with mandatory relocation and logged the reason.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <aside class="detail-drawer" data-drawer-panel="job-detail" aria-hidden="true" role="dialog" aria-label="Application detail drawer">
+    <div class="drawer-scrim" data-drawer-close></div>
+    <section class="drawer-panel">
+      <header class="drawer-header">
+        <div>
+          <p class="eyebrow">Application packet</p>
+          <h2 data-drawer-title>Staff Product Manager</h2>
+          <span data-drawer-company>Daybreak AI</span>
+        </div>
+        <button class="icon-button" type="button" aria-label="Close application detail" data-drawer-close>
+          <svg class="icon"><use href="#i-arrow-right"></use></svg>
+        </button>
+      </header>
+
+      <div class="drawer-score-row">
+        <article><strong>94%</strong><span>Fit score</span></article>
+        <article><strong>$185k</strong><span>Base target</span></article>
+        <article><strong>Auto</strong><span>Mode</span></article>
+      </div>
+
+      <section class="drawer-section">
+        <h3>Why it matched</h3>
+        <div class="match-chips">
+          <span>AI workflow ownership</span>
+          <span>Product strategy</span>
+          <span>Launch systems</span>
+        </div>
+      </section>
+
+      <section class="drawer-section">
+        <h3>Resume changes</h3>
+        <div class="diff-list">
+          <span><b>Before</b> Led product launches across marketplace teams.</span>
+          <span><b>After</b> Led AI-assisted workflow launches that improved qualified activation by 28%.</span>
+        </div>
+      </section>
+
+      <section class="drawer-section">
+        <h3>Form answers</h3>
+        <div class="answer-list">
+          <span><b>Work authorization</b> Authorized to work in the United States</span>
+          <span><b>Location</b> Remote US or New York hybrid</span>
+          <span><b>Salary expectation</b> $185k-$225k base</span>
+        </div>
+      </section>
+
+      <section class="drawer-section">
+        <h3>Safety flags</h3>
+        <div class="preflight-list compact">
+          <span><svg class="icon"><use href="#i-check"></use></svg> Salary verified</span>
+          <span><svg class="icon"><use href="#i-check"></use></svg> No relocation conflict</span>
+          <span><svg class="icon"><use href="#i-check"></use></svg> No missing required answer</span>
+        </div>
+      </section>
+
+      <div class="drawer-actions">
+        <button class="button secondary" type="button" data-drawer-close>Skip</button>
+        <button class="button secondary" type="button" data-modal="one-click" data-company="Selected company" data-role="Selected role">One-click apply</button>
+        <button class="button primary" type="button" data-toast="Auto-apply approved">Auto apply</button>
+      </div>
+    </section>
+  </aside>
+
+  <div class="review-modal" data-modal-panel="one-click" aria-hidden="true" role="dialog" aria-label="One-click application review">
+    <div class="modal-scrim" data-modal-close></div>
+    <section class="modal-panel">
+      <header class="modal-header">
+        <div>
+          <p class="eyebrow">One-click review</p>
+          <h2 data-modal-title>Ready to apply</h2>
+          <span data-modal-company>Prepared application</span>
+        </div>
+        <button class="icon-button" type="button" aria-label="Close one-click review" data-modal-close>
+          <svg class="icon"><use href="#i-arrow-right"></use></svg>
+        </button>
+      </header>
+
+      <div class="review-checks modal-checks">
+        <span><svg class="icon"><use href="#i-check"></use></svg> Tailored resume attached</span>
+        <span><svg class="icon"><use href="#i-check"></use></svg> Cover note generated</span>
+        <span><svg class="icon"><use href="#i-check"></use></svg> Form answers filled</span>
+        <span><svg class="icon"><use href="#i-clock"></use></svg> One preference needs your approval</span>
+      </div>
+
+      <div class="modal-preview">
+        <h3>What will be sent</h3>
+        <p>I’m applying with your AI workflow leadership resume version, a concise cover note, and salary/location answers aligned to your rules.</p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="button secondary" type="button" data-modal-close>Cancel</button>
+        <button class="button primary" type="button" data-modal-submit>
+          <svg class="icon"><use href="#i-send"></use></svg>
+          Apply now
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" aria-live="polite"></div>
+  <script src="shared.js"></script>
+</body>
+</html>

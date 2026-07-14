@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-ats="greenhouse">
+  <head><meta charset="utf-8" /><title>Apply - Acme</title></head>
+  <body>
+    <h1>Operations Analyst</h1>
+    <!-- A form whose every field maps to a USER-CONFIRMED value: no free-text, no self-ID, so it
+         is fully auto-submittable when the employer is pre-approved. -->
+    <form id="application-form" action="https://boards.greenhouse.io/acme/jobs/clean" method="post">
+      <div class="field required"><label for="first_name">First Name *</label><input id="first_name" name="first_name" type="text" required /></div>
+      <div class="field required"><label for="last_name">Last Name *</label><input id="last_name" name="last_name" type="text" required /></div>
+      <div class="field required"><label for="email">Email *</label><input id="email" name="email" type="email" required /></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" /></div>
+      <div class="field required">
+        <label for="work_auth">Are you authorized to work in the United States? *</label>
+        <select id="work_auth" name="work_auth" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+      </div>
+      <div class="field required">
+        <label for="age18">Are you at least 18 years of age? *</label>
+        <select id="age18" name="age18" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+      </div>
+      <button type="submit" id="submit_app">Submit Application</button>
+    </form>
+    <script>
+      window.__submitted = false;
+      document.getElementById("application-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__submitted = true;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Sign in to apply</title></head>
+  <body>
+    <h1>Sign in to continue your application</h1>
+    <form id="login" action="/session" method="post">
+      <div><label for="email">Email</label><input id="email" type="email" name="email" /></div>
+      <div><label for="pw">Password</label><input id="pw" type="password" name="password" /></div>
+      <button type="submit" id="signin">Sign in</button>
+    </form>
+    <script>
+      window.__loginSubmitted = false;
+      document.getElementById("login").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__loginSubmitted = true;
+      });
+    </script>
+  </body>
+</html>

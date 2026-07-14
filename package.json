@@ -1,0 +1,118 @@
+{
+  "name": "applypilot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ApplyPilot — local-first, single-user job-application co-pilot. Milestone 1: profile + setup wizard (Module 1) and resume ingestion + facts ledger + anti-fabrication verifier (Module 2).",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "setup": "tsx src/cli/setup.ts",
+    "ingest": "tsx src/cli/ingest.ts",
+    "ledger": "tsx src/cli/ledger.ts",
+    "verify-doc": "tsx src/cli/verify-doc.ts",
+    "generate": "tsx src/cli/generate.ts",
+    "apply": "tsx src/cli/apply.ts",
+    "companies": "tsx src/cli/companies.ts",
+    "discover": "tsx src/cli/discover.ts",
+    "accounts": "tsx src/cli/accounts.ts",
+    "encrypt-at-rest": "tsx src/cli/encrypt-at-rest.ts",
+    "dashboard:api": "tsx src/cli/dashboard-api.ts",
+    "validate:live-matching": "tsx scripts/validate-live-matching.mjs",
+    "seed:demo": "tsx src/cli/seed-demo.ts",
+    "autopilot": "tsx src/cli/autopilot.ts",
+    "schedule": "tsx src/cli/schedule.ts",
+    "app:build": "cd dashboard && npm run build",
+    "web:build": "npm run app:build",
+    "web:start": "tsx src/cli/web.ts",
+    "web:dev": "tsx src/cli/dashboard-api.ts",
+    "app:start": "electron electron/main.cjs",
+    "app": "node scripts/launch-app.mjs",
+    "app:stop": "node scripts/stop-app.mjs",
+    "app:restart": "npm run app:stop && npm run app",
+    "app:sync": "npm run app:build && npm run build:engine",
+    "app:update": "node scripts/update-app.mjs",
+    "app:update-launch": "node scripts/update-and-launch.mjs",
+    "app:install": "node scripts/install-desktop.mjs",
+    "app:install:update": "node scripts/install-desktop.mjs --update",
+    "app:refresh": "node scripts/refresh-local.mjs",
+    "make-icon": "node scripts/make-icon.mjs",
+    "build:engine": "node scripts/build-engine.mjs",
+    "smoke:engine": "node scripts/smoke-engine.mjs",
+    "smoke": "npm run build:engine && npm run smoke:engine",
+    "dist:dir": "npm run app:build && npm run build:engine && electron-builder --dir",
+    "dist": "npm run app:build && npm run build:engine && electron-builder --mac",
+    "models:download": "tsx src/cli/download-models.ts"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.applypilot.desktop",
+    "productName": "ApplyPilot",
+    "afterSign": "build/notarize.cjs",
+    "asar": true,
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "app-build/**/*",
+      "dashboard/dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "npmRebuild": true,
+    "asarUnpack": [
+      "app-build/**/*",
+      "dashboard/dist/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://updates.applypilot.app/mac/",
+        "channel": "latest"
+      }
+    ]
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.0",
+    "better-sqlite3": "^12.4.1",
+    "docx": "^9.7.1",
+    "electron-updater": "^6.8.9",
+    "mammoth": "^1.11.0",
+    "node-llama-cpp": "^3.19.0",
+    "p-queue": "^9.3.1",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.61.0",
+    "undici": "^8.7.0",
+    "unpdf": "^1.4.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@electron/notarize": "^3.1.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.0",
+    "electron": "^42.4.1",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

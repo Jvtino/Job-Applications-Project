@@ -1,0 +1,91 @@
+/* ApplyPilot Design System — entry point */
+
+@import "./tokens.css";
+@import "./typography.css";
+@import "./motion.css";
+@import "./components.css";
+@import "./layout.css";
+@import "./surfaces.css";
+@import "./auto-apps.css";
+@import "./matches-home.css";
+
+/* Scan stage live overlay (hero) — kept here for cohesion */
+.ap-app .scan-live-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ap-space-2);
+  padding: var(--ap-space-6);
+  text-align: center;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--ap-bg-elevated) 80%, transparent), transparent 70%);
+}
+
+.ap-app .scan-live-phase {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ap-space-2);
+  padding: 6px 12px;
+  border-radius: var(--ap-radius-full);
+  background: var(--ap-brand-muted);
+  border: 1px solid color-mix(in srgb, var(--ap-brand) 25%, transparent);
+  font-size: var(--ap-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ap-app .scan-live-message {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  font-weight: 600;
+}
+
+.ap-app .scan-live-ticker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: var(--ap-space-4);
+  overflow: hidden;
+  padding: var(--ap-space-2) var(--ap-space-4);
+  border-top: 1px solid var(--ap-border);
+  background: linear-gradient(to top, color-mix(in srgb, var(--ap-bg-elevated) 95%, transparent), transparent);
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+}
+
+.ap-app .scan-card {
+  background: var(--ap-bg-elevated);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-md);
+  box-shadow: var(--ap-shadow-md);
+  padding: var(--ap-space-3);
+}
+
+.ap-app .loading-skeleton {
+  display: grid;
+  gap: var(--ap-space-3);
+}
+.ap-app .skeleton-block { height: 14px; }
+.ap-app .skeleton-block.wide { height: 100px; }
+.ap-app .skeleton-block.short { width: 40%; }
+
+/* Kill legacy warm gradients inside the design system scope */
+.ap-app .match-card,
+.ap-app .hero-live-pill,
+.ap-app .rail-nav a.active {
+  background-image: none !important;
+}
+
+.ap-app .notification-dot::after {
+  border-color: var(--ap-bg-elevated);
+  background: var(--ap-brand);
+}

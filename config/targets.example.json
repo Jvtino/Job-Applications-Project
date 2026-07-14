@@ -1,0 +1,11 @@
+{
+  "_comment": "ApplyPilot target employers (single-user). Copy this file to config/targets.json and fill in REAL board identifiers. US roles only. NEVER guess a boardId: observe the exact request the employer's OWN careers page issues (open the careers page, watch the network tab for the greenhouse/lever/ashby/smartrecruiters/workable API call, and copy the board token/slug/account from it). `npm run discover` reads config/targets.json, seeds these employers, then scans them plus any exported job-alert emails. Supported vendors: greenhouse | lever | ashby | smartrecruiters | workable | workday. Workable postings are surfaced for manual apply; Workday postings support an EXPERIMENTAL multi-step fill (review every page). For workday, boardId is the FULL careers board URL (https://<tenant>.wdN.myworkdayjobs.com/<site>), not a bare slug.",
+  "targets": [
+    { "name": "Example Bank (AML / Financial Crime)", "vendor": "greenhouse", "boardId": "REPLACE_WITH_greenhouse_board_token" },
+    { "name": "Example Compliance Fintech", "vendor": "lever", "boardId": "REPLACE_WITH_lever_site" },
+    { "name": "Example Regtech", "vendor": "ashby", "boardId": "REPLACE_WITH_ashby_job_board_name" },
+    { "name": "Example Consulting / Big Four", "vendor": "smartrecruiters", "boardId": "REPLACE_WITH_smartrecruiters_companyId" },
+    { "name": "Example Crypto-Compliance", "vendor": "workable", "boardId": "REPLACE_WITH_workable_account_slug" },
+    { "name": "Example Bank (Workday)", "vendor": "workday", "boardId": "https://REPLACE.wd1.myworkdayjobs.com/REPLACE_site" }
+  ]
+}

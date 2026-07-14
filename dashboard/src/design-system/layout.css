@@ -1,0 +1,453 @@
+/* Layout — shell, rail, header, grid, drawer, hero */
+
+.ap-app {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 90% 60% at 100% -20%, color-mix(in srgb, var(--ap-brand) 6%, transparent), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 0% 0%, color-mix(in srgb, var(--ap-success) 5%, transparent), transparent 50%),
+    var(--ap-bg);
+}
+
+.ap-app .product-shell {
+  width: min(var(--ap-shell-max), calc(100% - var(--ap-space-8)));
+  margin: var(--ap-space-5) auto var(--ap-space-10);
+}
+
+.ap-app .command-layout {
+  display: grid;
+  grid-template-columns: var(--ap-rail-width) minmax(0, 1fr);
+  gap: var(--ap-space-5);
+  align-items: start;
+}
+
+/* ---- Side rail ---- */
+.ap-app .side-rail,
+.ap-app .sunrise-rail {
+  position: sticky;
+  top: var(--ap-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ap-space-4);
+  height: calc(100vh - var(--ap-space-10));
+  padding: var(--ap-space-4);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-lg);
+  background: var(--ap-bg-elevated);
+  box-shadow: var(--ap-shadow-sm);
+}
+
+.ap-app .brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-3);
+  font-size: var(--ap-text-lg);
+  font-weight: 700;
+  letter-spacing: var(--ap-tracking-tight);
+  color: var(--ap-text);
+}
+
+.ap-app .brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--ap-radius-sm);
+  background: linear-gradient(135deg, var(--ap-brand), color-mix(in srgb, var(--ap-brand) 60%, #f4b740));
+  border: none;
+  box-shadow: var(--ap-shadow-xs);
+}
+
+.ap-app .pilot-card {
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-3);
+  border-radius: var(--ap-radius-md);
+  background: var(--ap-bg-subtle);
+  border: 1px solid var(--ap-border);
+}
+
+.ap-app .avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--ap-radius-full);
+  background: var(--ap-brand-muted);
+  color: var(--ap-brand);
+  font-size: var(--ap-text-sm);
+  font-weight: 700;
+}
+
+.ap-app .pilot-card strong { font-size: var(--ap-text-sm); }
+.ap-app .pilot-card small { color: var(--ap-text-tertiary); font-size: var(--ap-text-xs); }
+
+.ap-app .rail-nav {
+  display: grid;
+  gap: var(--ap-space-1);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ap-app .rail-nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-3);
+  min-height: 40px;
+  padding: var(--ap-space-2) var(--ap-space-3);
+  border-radius: var(--ap-radius-sm);
+  border: 1px solid transparent;
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--ap-duration-fast) ease, color var(--ap-duration-fast) ease, transform var(--ap-duration-fast) var(--ap-ease-out);
+}
+
+.ap-app .rail-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  border-radius: 0 3px 3px 0;
+  background: var(--ap-brand);
+  transform: translateY(-50%);
+  transition: height var(--ap-duration-base) var(--ap-ease-out);
+}
+
+.ap-app .rail-nav a:hover {
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text);
+}
+
+.ap-app .rail-nav a.active {
+  background: var(--ap-brand-muted);
+  color: var(--ap-brand);
+  border-color: transparent;
+}
+.ap-app .rail-nav a.active::before { height: 55%; }
+.ap-app .rail-nav a.active .icon { color: var(--ap-brand); }
+
+.ap-app .rail-group-label {
+  padding: var(--ap-space-4) var(--ap-space-3) var(--ap-space-1);
+  font-size: var(--ap-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--ap-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ap-text-tertiary);
+}
+
+.ap-app .rail-score,
+.ap-app .rail-card {
+  padding: var(--ap-space-4);
+  border-radius: var(--ap-radius-md);
+  border: 1px solid var(--ap-border);
+  background: var(--ap-bg-subtle);
+  transition: transform var(--ap-duration-base) var(--ap-ease-out), box-shadow var(--ap-duration-base) ease;
+}
+.ap-app .rail-score:hover,
+.ap-app .rail-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ap-shadow-sm);
+}
+
+.ap-app .rail-score strong,
+.ap-app .rail-card strong {
+  display: block;
+  font-size: var(--ap-text-base);
+  margin-top: var(--ap-space-1);
+}
+.ap-app .rail-score span,
+.ap-app .rail-card span {
+  display: block;
+  margin-top: var(--ap-space-1);
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+  line-height: var(--ap-leading-relaxed);
+}
+
+/* ---- Main stack ---- */
+.ap-app .main-stack,
+.ap-app .sunrise-main {
+  display: grid;
+  gap: var(--ap-space-5);
+  animation: ap-fade-up var(--ap-duration-slow) var(--ap-ease-out);
+}
+
+/* ---- Header ---- */
+.ap-app .workspace-header,
+.ap-app .sunrise-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ap-space-5);
+  padding: var(--ap-space-1) 0 0;
+  background: transparent;
+}
+
+.ap-app .workspace-header h1,
+.ap-app .sunrise-header h1 {
+  max-width: 32ch !important;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem) !important;
+  line-height: var(--ap-leading-tight) !important;
+  font-weight: 650 !important;
+}
+
+.ap-app .header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ap-space-2);
+}
+
+.ap-app .run-stop-group {
+  display: inline-flex;
+  gap: var(--ap-space-2);
+}
+.ap-app .run-stop-group .button { min-width: 116px; }
+
+/* ---- Grid ---- */
+.ap-app .sunrise-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: var(--ap-space-4) !important;
+  align-items: start;
+}
+.ap-app .sunrise-grid .span-2 { grid-column: 1 / -1 !important; }
+.ap-app .sunrise-grid .activity-panel { grid-column: 1 / -1 !important; }
+
+.ap-stagger > *,
+.ap-app .ui-stagger-grid > *,
+.ap-app .ui-stagger-hero {
+  animation: ap-fade-up var(--ap-duration-slow) var(--ap-ease-out) backwards;
+}
+
+/* ---- Drawer ---- */
+.ap-drawer-scrim,
+.ap-app .cmd-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(8, 12, 20, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ap-duration-base) ease;
+}
+.ap-drawer-scrim.open,
+.ap-app .cmd-scrim.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ap-drawer,
+.ap-app .cmd-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  width: min(var(--ap-drawer-width), 94vw);
+  height: 100vh;
+  background: var(--ap-bg);
+  border-left: 1px solid var(--ap-border);
+  box-shadow: var(--ap-shadow-xl);
+  transform: translateX(102%);
+  transition: transform 0.34s var(--ap-ease-out);
+}
+.ap-drawer.open,
+.ap-app .cmd-drawer.open { transform: translateX(0); }
+
+.ap-app .cmd-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ap-space-4);
+  padding: var(--ap-space-5) var(--ap-space-6);
+  border-bottom: 1px solid var(--ap-border);
+  background: var(--ap-bg-elevated);
+}
+
+.ap-app .cmd-drawer-head h2 {
+  font-size: var(--ap-text-lg);
+  font-weight: 650;
+}
+
+.ap-app .cmd-close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-sm);
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text-secondary);
+  cursor: pointer;
+  transition: transform var(--ap-duration-fast) var(--ap-ease-out), background var(--ap-duration-fast) ease;
+}
+.ap-app .cmd-close:hover {
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text);
+  transform: rotate(90deg);
+}
+
+.ap-app .cmd-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--ap-space-6);
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+.ap-app .drawer-panel-enter {
+  animation: ap-slide-in-right 0.38s var(--ap-ease-out);
+}
+
+.ap-app .focused-view {
+  display: grid;
+  gap: var(--ap-space-4);
+}
+.ap-app .focused-view.narrow { max-width: none; }
+
+/* ---- Hero ---- */
+.ap-app .sunrise-command-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+  gap: var(--ap-space-4);
+  background: transparent !important;
+}
+
+.ap-app .hero-console,
+.ap-app .automation-console {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(280px, 1.15fr);
+  grid-template-rows: auto auto;
+  gap: var(--ap-space-4);
+  min-height: 360px;
+  padding: var(--ap-space-5);
+  border: 1px solid var(--ap-border) !important;
+  border-radius: var(--ap-radius-lg) !important;
+  background: var(--ap-bg-elevated) !important;
+  box-shadow: var(--ap-shadow-sm) !important;
+  overflow: hidden;
+}
+
+.ap-app .hero-console::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto 30%;
+  height: 280px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--ap-brand) 14%, transparent), transparent 65%);
+  pointer-events: none;
+}
+
+.ap-app .hero-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ap-space-2);
+  width: fit-content;
+  padding: var(--ap-space-2) var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  border: 1px solid color-mix(in srgb, var(--ap-success) 25%, transparent);
+  background: var(--ap-success-muted);
+  color: var(--ap-success);
+  font-size: var(--ap-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ap-app .hero-copy-block h2 {
+  font-size: var(--ap-text-xl);
+  line-height: var(--ap-leading-tight);
+  max-width: 28ch;
+}
+.ap-app .hero-copy-block p {
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  line-height: var(--ap-leading-relaxed);
+  max-width: 42ch;
+}
+
+.ap-app .hero-queries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ap-space-2);
+}
+.ap-app .hero-queries span {
+  padding: var(--ap-space-1) var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  border: 1px solid var(--ap-border);
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-xs);
+  font-weight: 600;
+}
+
+.ap-app .hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ap-space-3);
+  grid-column: 1 / -1;
+}
+.ap-app .hero-metrics article {
+  padding: var(--ap-space-3);
+  border-radius: var(--ap-radius-md);
+  background: var(--ap-bg-subtle);
+  border: 1px solid var(--ap-border);
+  transition: transform var(--ap-duration-base) var(--ap-ease-out);
+}
+.ap-app .hero-metrics article:hover { transform: translateY(-2px); }
+.ap-app .hero-metrics strong {
+  display: block;
+  font-size: var(--ap-text-xl);
+  font-weight: 700;
+}
+.ap-app .hero-metrics span {
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+}
+
+.ap-app .scan-stage {
+  position: relative;
+  border-radius: var(--ap-radius-md);
+  overflow: hidden;
+  min-height: 200px;
+}
+.ap-app .scan-stage-live {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ap-brand) 30%, transparent);
+}
+
+/* ---- Offline banner ---- */
+.ap-app .offline-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-3) var(--ap-space-4);
+  border-radius: var(--ap-radius-md);
+  border: 1px solid color-mix(in srgb, var(--ap-warning) 30%, transparent);
+  background: var(--ap-warning-muted);
+  font-size: var(--ap-text-sm);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1080px) {
+  .ap-app .command-layout { grid-template-columns: 1fr; }
+  .ap-app .side-rail { position: static; height: auto; }
+  .ap-app .sunrise-command-hero { grid-template-columns: 1fr; }
+  .ap-app .hero-console { grid-template-columns: 1fr; }
+  .ap-app .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+  .ap-app .sunrise-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 640px) {
+  .ap-app .product-shell { width: calc(100% - var(--ap-space-4)); margin: var(--ap-space-3) auto; }
+  .ap-app .workspace-header { flex-direction: column; }
+  .ap-app .header-actions { width: 100%; }
+}

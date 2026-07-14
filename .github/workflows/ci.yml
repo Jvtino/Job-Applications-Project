@@ -1,0 +1,51 @@
+# Continuous integration for ApplyPilot (commercial M8).
+#
+# The headline check is the PACKAGED-BUILD SMOKE TEST: build the real engine bundle (app-build/engine.cjs)
+# and boot it exactly as the packaged shell does, asserting /api/health + /api/state answer. That catches
+# a bundle that fails to boot or a broken API before a release is cut — the gap the git-clone dev flow
+# never had. Signing/notarization + the signed self-update round-trip still require a real Mac + the
+# owner's Developer ID (see COMMERCIAL_PROGRESS.md), so they are not run here.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  engine:
+    name: Engine — typecheck, tests, packaged smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      # The suite includes real Chromium integration tests (apply flows, robots enforcement) that launch
+      # a browser — and M8's launch gate turns "no browser" into BrowserNotInstalledError — so CI must
+      # provide one (+ its OS libs). The packaged app downloads Chromium at first run instead (M8); this
+      # install is only for the test job.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build:engine
+      - run: npm run smoke:engine
+
+  dashboard:
+    name: Dashboard — typecheck, tests, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: npm ci
+        working-directory: dashboard
+      - run: npm test
+        working-directory: dashboard
+      - run: npm run build
+        working-directory: dashboard

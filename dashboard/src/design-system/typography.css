@@ -1,0 +1,61 @@
+/* Typography */
+
+.ap-app {
+  font-family: var(--ap-font-sans);
+  font-size: var(--ap-text-base);
+  line-height: var(--ap-leading-normal);
+  color: var(--ap-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.ap-app h1, .ap-app h2, .ap-app h3, .ap-app h4 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: var(--ap-tracking-tight);
+  color: var(--ap-text);
+  line-height: var(--ap-leading-tight);
+}
+
+.ap-app h1 { font-size: var(--ap-text-2xl); }
+.ap-app h2 { font-size: var(--ap-text-xl); }
+.ap-app h3 { font-size: var(--ap-text-lg); }
+
+.ap-app p { margin: 0; }
+
+.ap-eyebrow,
+.ap-app .eyebrow {
+  margin: 0 0 var(--ap-space-1);
+  font-size: var(--ap-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--ap-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ap-text-tertiary);
+}
+
+.ap-app code,
+.ap-app .settings-hint code,
+.ap-app .welcome-intro code {
+  font-family: var(--ap-font-mono);
+  font-size: 0.88em;
+  padding: 0.12em 0.4em;
+  border-radius: 5px;
+  background: var(--ap-bg-subtle);
+  border: 1px solid var(--ap-border);
+}
+
+.ap-muted { color: var(--ap-text-secondary); }
+.ap-subtle { color: var(--ap-text-tertiary); font-size: var(--ap-text-sm); }
+
+.ap-app .profile-section {
+  font-size: var(--ap-text-lg);
+  font-weight: 650;
+  margin: 0 0 var(--ap-space-3);
+}
+
+.ap-app .profile-section small {
+  font-size: var(--ap-text-sm);
+  font-weight: 500;
+  color: var(--ap-text-tertiary);
+}

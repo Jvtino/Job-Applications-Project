@@ -1,0 +1,6 @@
+{
+  "_comment": "Test-only curated catalog: maps the company named in linkedin-alert.eml (Northwind Bank) to a greenhouse board, so the alert→board resolver can be exercised end-to-end without touching the real config/targets*.json.",
+  "targets": [
+    { "name": "Northwind Bank", "vendor": "greenhouse", "boardId": "northwind" }
+  ]
+}

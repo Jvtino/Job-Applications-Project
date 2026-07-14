@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Operations Analyst | Acme</title></head>
+  <body>
+    <!-- Ashby-shaped apply form (client-rendered in reality; static here). Detected as ASHBY via
+         REAL Ashby markers only: the .ashby-* class names. It avoids both Greenhouse's
+         #first_name+#email signature AND Lever's .application-form / data-qa="application-form" /
+         lever.co markers, so pickAdapter (Greenhouse -> Lever -> Ashby) lands on Ashby. Every field
+         maps to a USER-CONFIRMED value. -->
+    <div id="root" class="ashby-job-posting-right-pane">
+      <div class="ashby-application-form-container">
+        <h2>Operations Analyst</h2>
+        <form class="ashby-application-form" method="POST" action="/acme/application">
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_first">First Name <span class="ashby-application-form-required-tag">*</span></label>
+            <input id="_systemfield_first" name="_systemfield_first" type="text" required />
+          </div>
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_last">Last Name <span class="ashby-application-form-required-tag">*</span></label>
+            <input id="_systemfield_last" name="_systemfield_last" type="text" required />
+          </div>
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_email">Email <span class="ashby-application-form-required-tag">*</span></label>
+            <input id="_systemfield_email" name="_systemfield_email" type="email" required />
+          </div>
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_phone">Phone</label>
+            <input id="_systemfield_phone" name="_systemfield_phone" type="tel" />
+          </div>
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_auth">Are you authorized to work in the United States? *</label>
+            <select id="_systemfield_auth" name="_systemfield_auth" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <div class="ashby-application-form-field-entry">
+            <label for="_systemfield_age">Are you at least 18 years of age? *</label>
+            <select id="_systemfield_age" name="_systemfield_age" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <button type="submit" class="ashby-application-form-submit-button">Submit Application</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      window.__submitted = false;
+      document.querySelector("form.ashby-application-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__submitted = true;
+      });
+    </script>
+  </body>
+</html>

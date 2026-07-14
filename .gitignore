@@ -1,0 +1,29 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+/app-build/
+/release/
+*.sqlite
+*.sqlite3
+*.db
+/data/
+/uploads/
+/resumes/
+/generated/
+/output/
+/.auth/
+/browser-profile/
+/browser-profile-discovery/
+playwright/.auth/
+# Your real target-employer list + exported job-alert emails stay local (the
+# committed config/targets.example.json is the template).
+/config/targets.json
+/alert-mail/
+*.log
+.DS_Store
+
+# Stray on-disk SQLite DB created when a literal ":memory:" path is opened
+# instead of a true in-memory handle. Keep local job/profile data out of git.
+:memory:*

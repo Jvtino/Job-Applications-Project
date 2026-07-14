@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Apply - Northwind Careers</title></head>
+  <body>
+    <!-- A plain, UNRECOGNIZED application form: no Greenhouse (#first_name+#email / gh ids), no Lever
+         (.application-form / data-qa="application-form" / lever.co), no Ashby (.ashby-* classes)
+         markers. pickAdapter (Greenhouse -> Lever -> Ashby -> GENERIC) must fall through to the
+         generic fallback, which decideAutoSubmit ALWAYS queues — an unknown form is never
+         auto-submitted, even when it is fully filled and the employer is approved + live. Every
+         field still maps, so the shared engine fills it (proving the engine, not just the gate). -->
+    <main class="careers">
+      <h1>Operations Analyst</h1>
+      <form id="careers-application" class="careers-form" action="/careers/apply" method="post">
+        <div class="form-row"><label for="gf_first">First Name *</label><input id="gf_first" name="applicant_first" type="text" required /></div>
+        <div class="form-row"><label for="gf_last">Last Name *</label><input id="gf_last" name="applicant_last" type="text" required /></div>
+        <div class="form-row"><label for="gf_email">Email *</label><input id="gf_email" name="applicant_email" type="email" required /></div>
+        <div class="form-row"><label for="gf_phone">Phone</label><input id="gf_phone" name="applicant_phone" type="tel" /></div>
+        <div class="form-row">
+          <label for="gf_auth">Are you authorized to work in the United States? *</label>
+          <select id="gf_auth" name="work_auth" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+        </div>
+        <div class="form-row">
+          <label for="gf_age">Are you at least 18 years of age? *</label>
+          <select id="gf_age" name="age18" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+        </div>
+        <button type="submit" id="apply-btn">Submit Application</button>
+      </form>
+    </main>
+    <script>
+      window.__submitted = false;
+      document.getElementById("careers-application").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__submitted = true;
+      });
+    </script>
+  </body>
+</html>

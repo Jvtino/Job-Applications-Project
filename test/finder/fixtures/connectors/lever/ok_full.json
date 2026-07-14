@@ -1,0 +1,60 @@
+[
+  {
+    "id": "a1b2c3d4-1111-4abc-9def-000000000001",
+    "text": "AML Compliance Analyst",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Risk & Compliance",
+      "location": "New York, NY",
+      "team": "Financial Crimes",
+      "allLocations": ["New York, NY"]
+    },
+    "country": "US",
+    "workplaceType": "hybrid",
+    "createdAt": 1782950400000,
+    "description": "<div>Join our <b>financial crimes</b> team to run AML investigations, SAR filings, and OFAC screening.</div><ul><li>3+ years AML/KYC experience</li><li>CAMS a plus</li></ul>",
+    "descriptionPlain": "Join our financial crimes team to run AML investigations, SAR filings, and OFAC screening. 3+ years AML/KYC experience. CAMS a plus.",
+    "lists": [],
+    "hostedUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-1111-4abc-9def-000000000001",
+    "applyUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-1111-4abc-9def-000000000001/apply",
+    "salaryRange": { "min": 85000, "max": 110000, "currency": "USD", "interval": "per-year-salary" }
+  },
+  {
+    "id": "a1b2c3d4-2222-4abc-9def-000000000002",
+    "text": "Warehouse Associate — Night Shift",
+    "categories": {
+      "commitment": "Part-time",
+      "department": "Operations",
+      "location": "Columbus, Ohio, United States",
+      "team": "Fulfillment",
+      "allLocations": ["Columbus, Ohio, United States"]
+    },
+    "country": "US",
+    "workplaceType": "on-site",
+    "createdAt": 1783382400000,
+    "description": "<p>Pick, pack, and load. Forklift certification a plus. Pay $18.50 - $22.00 per hour.</p>",
+    "descriptionPlain": "Pick, pack, and load. Forklift certification a plus. Pay $18.50 - $22.00 per hour.",
+    "lists": [],
+    "hostedUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-2222-4abc-9def-000000000002",
+    "applyUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-2222-4abc-9def-000000000002/apply"
+  },
+  {
+    "id": "a1b2c3d4-3333-4abc-9def-000000000003",
+    "text": "Senior Backend Engineer",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Engineering",
+      "location": "Remote - US",
+      "team": "Payments",
+      "allLocations": ["Remote - US"]
+    },
+    "country": "US",
+    "workplaceType": "remote",
+    "createdAt": 1783036800000,
+    "description": "<p>Build payment APIs in Go and TypeScript on AWS.</p>",
+    "descriptionPlain": "Build payment APIs in Go and TypeScript on AWS.",
+    "lists": [],
+    "hostedUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-3333-4abc-9def-000000000003",
+    "applyUrl": "https://jobs.lever.co/acmepay/a1b2c3d4-3333-4abc-9def-000000000003/apply"
+  }
+]

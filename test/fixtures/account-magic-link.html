@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Verify your email</title></head>
+  <body>
+    <main>
+      <h1>Check your email</h1>
+      <p>We emailed you a one-time verification code. Enter the 6-digit code to sign in, or we can send a magic link instead.</p>
+      <form id="verify" action="/auth/verify" method="post">
+        <div><label for="email">Email</label><input id="email" type="email" name="email" value="" /></div>
+        <div><label for="code">Verification code</label><input id="code" type="text" name="code" inputmode="numeric" /></div>
+        <button type="submit" id="continue">Continue</button>
+      </form>
+    </main>
+  </body>
+</html>

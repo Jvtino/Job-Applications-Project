@@ -1,0 +1,167 @@
+/* ApplyPilot Design System — tokens (single source of truth) */
+
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Brand */
+  --ap-brand: #e85d4c;
+  --ap-brand-hover: #d4544a;
+  --ap-brand-muted: rgba(232, 93, 76, 0.12);
+  --ap-brand-contrast: #ffffff;
+
+  /* Neutrals */
+  --ap-bg: #f4f6f9;
+  --ap-bg-elevated: #ffffff;
+  --ap-bg-subtle: #eef1f6;
+  --ap-bg-muted: #e4e9f0;
+  --ap-border: rgba(15, 23, 42, 0.08);
+  --ap-border-strong: rgba(15, 23, 42, 0.14);
+  --ap-text: #0f172a;
+  --ap-text-secondary: #475569;
+  --ap-text-tertiary: #94a3b8;
+  --ap-text-inverse: #f8fafc;
+
+  /* Semantic */
+  --ap-success: #0d9488;
+  --ap-success-muted: rgba(13, 148, 136, 0.12);
+  --ap-info: #3b82f6;
+  --ap-info-muted: rgba(59, 130, 246, 0.12);
+  --ap-warning: #d97706;
+  --ap-warning-muted: rgba(217, 119, 6, 0.12);
+  --ap-danger: #dc2626;
+  --ap-danger-muted: rgba(220, 38, 38, 0.12);
+
+  /* ATS dots */
+  --ap-dot-teal: #0d9488;
+  --ap-dot-coral: #e85d4c;
+  --ap-dot-blue: #3b82f6;
+  --ap-dot-yellow: #ca8a04;
+
+  /* Typography */
+  --ap-font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ap-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  --ap-text-xs: 0.6875rem;
+  --ap-text-sm: 0.8125rem;
+  --ap-text-base: 0.9375rem;
+  --ap-text-lg: 1.0625rem;
+  --ap-text-xl: 1.25rem;
+  --ap-text-2xl: 1.5rem;
+  --ap-text-3xl: 1.875rem;
+  --ap-leading-tight: 1.2;
+  --ap-leading-normal: 1.5;
+  --ap-leading-relaxed: 1.65;
+  --ap-tracking-tight: -0.02em;
+  --ap-tracking-wide: 0.06em;
+
+  /* Spacing (4px base) */
+  --ap-space-1: 0.25rem;
+  --ap-space-2: 0.5rem;
+  --ap-space-3: 0.75rem;
+  --ap-space-4: 1rem;
+  --ap-space-5: 1.25rem;
+  --ap-space-6: 1.5rem;
+  --ap-space-8: 2rem;
+  --ap-space-10: 2.5rem;
+  --ap-space-12: 3rem;
+
+  /* Radius */
+  --ap-radius-sm: 8px;
+  --ap-radius-md: 12px;
+  --ap-radius-lg: 16px;
+  --ap-radius-full: 9999px;
+
+  /* Elevation */
+  --ap-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --ap-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --ap-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --ap-shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.1), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --ap-shadow-xl: 0 20px 48px rgba(15, 23, 42, 0.14);
+
+  /* Motion */
+  --ap-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ap-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ap-duration-fast: 140ms;
+  --ap-duration-base: 220ms;
+  --ap-duration-slow: 360ms;
+
+  --ap-ring: 0 0 0 3px rgba(232, 93, 76, 0.28);
+  --ap-shell-max: 1440px;
+  --ap-rail-width: 260px;
+  --ap-drawer-width: 720px;
+
+  /* Legacy bridge (shared.css components read these) */
+  --paper: var(--ap-bg-elevated);
+  --cream: var(--ap-bg);
+  --ink: var(--ap-text);
+  --muted: var(--ap-text-secondary);
+  --line: var(--ap-border);
+  --coral: var(--ap-brand);
+  --teal: var(--ap-success);
+  --yellow: var(--ap-dot-yellow);
+  --blue: var(--ap-info);
+  --green: #16a34a;
+  --brown-900: var(--ap-text);
+  --brown-700: var(--ap-text-secondary);
+  --brown-500: var(--ap-text-tertiary);
+  --brown-200: var(--ap-bg-muted);
+  --shadow: var(--ap-shadow-md);
+  --radius: var(--ap-radius-md);
+  --app-bg: var(--ap-bg);
+  --surface: var(--ap-bg-elevated);
+  --surface-2: var(--ap-bg-subtle);
+  --surface-3: var(--ap-bg-muted);
+  --border: var(--ap-border);
+  --border-strong: var(--ap-border-strong);
+  --text: var(--ap-text);
+  --text-2: var(--ap-text-secondary);
+  --text-3: var(--ap-text-tertiary);
+  --accent: var(--ap-brand);
+  --accent-2: var(--ap-brand-hover);
+  --accent-soft: var(--ap-brand-muted);
+  --accent-contrast: var(--ap-brand-contrast);
+  --danger: var(--ap-danger);
+  --ring: var(--ap-ring);
+  --elev-1: var(--ap-shadow-xs);
+  --elev-2: var(--ap-shadow-md);
+  --elev-3: var(--ap-shadow-xl);
+  --rad: var(--ap-radius-md);
+  --rad-sm: var(--ap-radius-sm);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ap-brand: #ff7a68;
+  --ap-brand-hover: #ff8f80;
+  --ap-brand-muted: rgba(255, 122, 104, 0.16);
+  --ap-brand-contrast: #0f172a;
+
+  --ap-bg: #0a0e14;
+  --ap-bg-elevated: #121820;
+  --ap-bg-subtle: #1a222d;
+  --ap-bg-muted: #232d3b;
+  --ap-border: rgba(255, 255, 255, 0.08);
+  --ap-border-strong: rgba(255, 255, 255, 0.14);
+  --ap-text: #eef2f7;
+  --ap-text-secondary: #9aa8ba;
+  --ap-text-tertiary: #64748b;
+  --ap-text-inverse: #0f172a;
+
+  --ap-success: #2dd4bf;
+  --ap-success-muted: rgba(45, 212, 191, 0.14);
+  --ap-info: #60a5fa;
+  --ap-info-muted: rgba(96, 165, 250, 0.14);
+  --ap-warning: #fbbf24;
+  --ap-warning-muted: rgba(251, 191, 36, 0.14);
+  --ap-danger: #f87171;
+  --ap-danger-muted: rgba(248, 113, 113, 0.14);
+
+  --ap-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --ap-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --ap-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --ap-shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.5);
+  --ap-shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.55);
+
+  --ap-ring: 0 0 0 3px rgba(255, 122, 104, 0.32);
+}

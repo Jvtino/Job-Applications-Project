@@ -1,0 +1,13 @@
+From: SomeStore Deals <newsletter@somestore.com>
+To: Haci <haciilhan@live.com>
+Subject: 50% off everything
+Date: Sat, 11 Jul 2026 08:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+<html><body>
+<h1>50% OFF EVERYTHING</h1>
+<p>Our biggest sale of the year is here. <a href="https://somestore.com/sale?utm=email">Shop now</a>.</p>
+<p><a href="https://somestore.com/unsubscribe?u=123">Unsubscribe</a></p>
+</body></html>

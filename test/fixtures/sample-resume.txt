@@ -1,0 +1,24 @@
+Jane Q. Applicant
+San Francisco, CA
+jane.applicant@example.com | (415) 555-0137 | https://linkedin.com/in/janeapplicant | https://github.com/janeapplicant
+
+SUMMARY
+Operations analyst with 6 years of experience in claims review and process improvement.
+
+EXPERIENCE
+Senior Operations Analyst - Northwind Logistics  2021 - Present
+- Reviewed 120 claims per week, reducing backlog by 35%.
+- Led a team of 5 analysts across two regional offices.
+
+Operations Analyst - Contoso Freight  2018 - 2021
+- Built dashboards that cut reporting time by 40%.
+- Processed 90 vendor invoices per month with 99% accuracy.
+
+EDUCATION
+B.S. in Industrial Engineering - State University  2018
+
+SKILLS
+SQL, Excel, Tableau, Process Mapping, Lean Six Sigma
+
+CERTIFICATIONS
+Lean Six Sigma Green Belt  2020

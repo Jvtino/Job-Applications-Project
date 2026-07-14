@@ -1,0 +1,540 @@
+/* Components — buttons, inputs, badges, segmented, toast, stop bar */
+
+/* ---- Buttons ---- */
+.ap-btn,
+.ap-app .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ap-space-2);
+  min-height: 38px;
+  padding: 0 var(--ap-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--ap-radius-sm);
+  font-family: inherit;
+  font-size: var(--ap-text-sm);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background var(--ap-duration-fast) ease,
+    border-color var(--ap-duration-fast) ease,
+    color var(--ap-duration-fast) ease,
+    transform var(--ap-duration-fast) var(--ap-ease-out),
+    box-shadow var(--ap-duration-base) ease;
+}
+
+.ap-btn:disabled,
+.ap-app .button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.ap-btn--primary,
+.ap-app .button.primary {
+  background: var(--ap-brand);
+  color: var(--ap-brand-contrast);
+  box-shadow: var(--ap-shadow-xs);
+}
+.ap-btn--primary:hover:not(:disabled),
+.ap-app .button.primary:hover:not(:disabled) {
+  background: var(--ap-brand-hover);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--ap-brand) 30%, transparent);
+  transform: translateY(-1px);
+}
+
+.ap-btn--secondary,
+.ap-app .button.secondary {
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text);
+  border-color: var(--ap-border-strong);
+}
+.ap-btn--secondary:hover:not(:disabled),
+.ap-app .button.secondary:hover:not(:disabled) {
+  background: var(--ap-bg-subtle);
+  transform: translateY(-1px);
+}
+
+.ap-btn--ghost,
+.ap-app .button.ghost {
+  background: transparent;
+  color: var(--ap-text-secondary);
+}
+.ap-btn--ghost:hover:not(:disabled),
+.ap-app .button.ghost:hover:not(:disabled) {
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text);
+}
+
+.ap-btn--danger,
+.ap-app .button.danger {
+  background: var(--ap-danger);
+  color: #fff;
+  box-shadow: var(--ap-shadow-xs);
+}
+.ap-btn--danger:hover:not(:disabled),
+.ap-app .button.danger:hover:not(:disabled) {
+  filter: brightness(1.06);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--ap-danger) 28%, transparent);
+  transform: translateY(-1px);
+}
+
+.ap-btn--compact,
+.ap-app .button.compact {
+  min-height: 32px;
+  padding: 0 var(--ap-space-3);
+  font-size: var(--ap-text-xs);
+  background: var(--ap-bg-subtle);
+  border-color: var(--ap-border);
+  color: var(--ap-text);
+}
+
+.ap-btn:active:not(:disabled),
+.ap-app .button:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+.ap-btn--icon,
+.ap-app .icon-button {
+  width: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding: 0;
+  background: var(--ap-bg-elevated);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-sm);
+  color: var(--ap-text-secondary);
+}
+.ap-app .icon-button:hover {
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text);
+}
+
+.ap-app .mini-icon {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--ap-radius-sm);
+  background: transparent;
+  color: var(--ap-text-tertiary);
+  cursor: pointer;
+  transition: color var(--ap-duration-fast) ease, background var(--ap-duration-fast) ease;
+}
+.ap-app .mini-icon:hover {
+  background: var(--ap-danger-muted);
+  color: var(--ap-danger);
+}
+
+.ap-app .button.is-loading { pointer-events: none; }
+.ap-app .button .btn-label { line-height: 1; }
+
+/* ---- Inputs ---- */
+.ap-field,
+.ap-app .settings-field,
+.ap-app .profile-form label,
+.ap-app .generate-form label {
+  display: grid;
+  gap: var(--ap-space-2);
+}
+
+.ap-field span,
+.ap-app .settings-field > span {
+  font-size: var(--ap-text-sm);
+  font-weight: 500;
+  color: var(--ap-text-secondary);
+}
+
+.ap-input,
+.ap-app input:not([type="checkbox"]):not([type="file"]):not([type="range"]),
+.ap-app textarea,
+.ap-app select,
+.ap-app .targets-add input,
+.ap-app .welcome-inline input,
+.ap-app .profile-form input,
+.ap-app .profile-form select,
+.ap-app .generate-form input,
+.ap-app .generate-form textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: var(--ap-space-2) var(--ap-space-3);
+  border: 1px solid var(--ap-border-strong);
+  border-radius: var(--ap-radius-sm);
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text);
+  font-family: inherit;
+  font-size: var(--ap-text-sm);
+  transition: border-color var(--ap-duration-fast) ease, box-shadow var(--ap-duration-fast) ease;
+}
+
+.ap-app textarea { min-height: 120px; resize: vertical; line-height: var(--ap-leading-relaxed); }
+
+.ap-input:focus,
+.ap-app input:focus,
+.ap-app textarea:focus,
+.ap-app select:focus {
+  outline: none;
+  border-color: var(--ap-brand);
+  box-shadow: var(--ap-ring);
+}
+
+.ap-app input::placeholder,
+.ap-app textarea::placeholder {
+  color: var(--ap-text-tertiary);
+}
+
+.ap-app input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--ap-brand);
+}
+
+/* ---- Badges ---- */
+.ap-badge,
+.ap-app .score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  border: 1px solid var(--ap-border);
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-xs);
+  font-weight: 650;
+}
+
+.ap-badge--ok,
+.ap-app .score-badge.ok {
+  background: var(--ap-brand-muted);
+  border-color: transparent;
+  color: var(--ap-brand);
+}
+
+.ap-badge--live {
+  background: var(--ap-success-muted);
+  border-color: transparent;
+  color: var(--ap-success);
+}
+
+/* LLM mode badge in the Rules tab */
+.ap-app .llm-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  border: 1px solid var(--ap-border);
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-xs);
+  font-weight: 650;
+  font-style: normal;
+  white-space: nowrap;
+}
+.ap-app .llm-mode-cloud {
+  background: var(--ap-brand-muted);
+  border-color: transparent;
+  color: var(--ap-brand);
+}
+.ap-app .llm-mode-local {
+  background: var(--ap-success-muted);
+  border-color: transparent;
+  color: var(--ap-success);
+}
+.ap-app .llm-mode-builtin {
+  background: var(--ap-bg-subtle);
+  border-color: var(--ap-border);
+  color: var(--ap-text-tertiary);
+}
+
+/* ---- Target role chips ---- */
+.ap-app .resume-roles-block {
+  transition: box-shadow var(--ap-duration-base) ease;
+}
+.ap-app .resume-roles-block.role-saved {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ap-success) 40%, transparent);
+}
+.ap-app .resume-roles-hint {
+  display: block;
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+  margin-top: var(--ap-space-1);
+  margin-bottom: var(--ap-space-3);
+}
+.ap-app .role-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ap-space-2);
+}
+.ap-app .role-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  border: 1px solid var(--ap-border-strong);
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--ap-duration-fast) ease,
+    border-color var(--ap-duration-fast) ease,
+    color var(--ap-duration-fast) ease,
+    transform var(--ap-duration-fast) var(--ap-ease-out);
+}
+.ap-app .role-chip:hover {
+  background: var(--ap-bg-subtle);
+  border-color: var(--ap-brand);
+  color: var(--ap-text);
+  transform: translateY(-1px);
+}
+.ap-app .role-chip.is-selected {
+  background: var(--ap-brand-muted);
+  border-color: var(--ap-brand);
+  color: var(--ap-brand);
+}
+.ap-app .role-chip.is-selected:hover {
+  filter: brightness(1.05);
+}
+
+/* ---- Status dot ---- */
+.ap-dot,
+.ap-app .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ap-text-tertiary);
+  flex-shrink: 0;
+}
+.ap-dot--live,
+.ap-app .status-dot.live {
+  background: var(--ap-success);
+  box-shadow: 0 0 0 3px var(--ap-success-muted);
+  animation: ap-pulse 1.8s ease infinite;
+}
+
+.ap-app .company-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ap-app .company-dot.teal { background: var(--ap-dot-teal); }
+.ap-app .company-dot.coral { background: var(--ap-dot-coral); }
+.ap-app .company-dot.blue { background: var(--ap-dot-blue); }
+.ap-app .company-dot.yellow { background: var(--ap-dot-yellow); }
+
+/* ---- Segmented control ---- */
+.ap-segmented,
+.ap-app .segmented {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border-radius: var(--ap-radius-full);
+  background: var(--ap-bg-subtle);
+  border: 1px solid var(--ap-border);
+}
+
+.ap-segmented button,
+.ap-app .segmented button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 var(--ap-space-4);
+  border: none;
+  border-radius: var(--ap-radius-full);
+  background: transparent;
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--ap-duration-base) var(--ap-ease-out);
+}
+
+.ap-segmented button.is-active,
+.ap-app .segmented button.is-active {
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text);
+  box-shadow: var(--ap-shadow-xs);
+  transform: scale(1.02);
+}
+
+.ap-app .mode-toggle { display: inline-grid; grid-template-columns: 1fr 1fr; }
+
+/* ---- Theme toggle ---- */
+.ap-app .theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-sm);
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text-secondary);
+  cursor: pointer;
+  transition: background var(--ap-duration-fast) ease, color var(--ap-duration-fast) ease;
+}
+.ap-app .theme-toggle:hover {
+  background: var(--ap-bg-subtle);
+  color: var(--ap-text);
+}
+
+/* ---- Toast ---- */
+.ap-toast,
+.ap-app .toast,
+.toast {
+  position: fixed;
+  right: var(--ap-space-5);
+  bottom: var(--ap-space-5);
+  z-index: 200;
+  max-width: min(400px, calc(100vw - 40px));
+  padding: var(--ap-space-3) var(--ap-space-4);
+  border-radius: var(--ap-radius-sm);
+  background: var(--ap-text) !important;
+  color: var(--ap-bg) !important;
+  border: 1px solid var(--ap-border-strong) !important;
+  font-size: var(--ap-text-sm) !important;
+  font-weight: 550 !important;
+  line-height: var(--ap-leading-normal);
+  box-shadow: var(--ap-shadow-xl) !important;
+  transform: translateY(12px) scale(0.98);
+  opacity: 0;
+  transition: transform var(--ap-duration-base) var(--ap-ease-spring), opacity var(--ap-duration-fast) ease;
+}
+.ap-toast.is-visible,
+.toast.is-visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+body.ap-task-active .toast { bottom: 88px; }
+
+/* ---- Global stop bar ---- */
+.ap-stopbar,
+.ap-app .global-stop-bar {
+  position: fixed;
+  left: 50%;
+  bottom: var(--ap-space-5);
+  transform: translateX(-50%) translateY(120%) scale(0.96);
+  z-index: 190;
+  display: flex;
+  align-items: center;
+  gap: var(--ap-space-4);
+  padding: var(--ap-space-2) var(--ap-space-3) var(--ap-space-2) var(--ap-space-4);
+  border-radius: var(--ap-radius-full);
+  background: color-mix(in srgb, var(--ap-bg-elevated) 90%, transparent);
+  border: 1px solid var(--ap-border-strong);
+  box-shadow: var(--ap-shadow-xl);
+  backdrop-filter: blur(16px) saturate(1.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--ap-duration-slow) var(--ap-ease-spring), opacity var(--ap-duration-base) ease;
+}
+.ap-stopbar.is-visible,
+.ap-app .global-stop-bar.is-visible {
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ap-stopbar__pulse,
+.ap-app .stop-bar-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ap-success);
+  animation: ap-pulse 1.6s ease infinite;
+}
+
+.ap-stopbar__copy strong,
+.ap-app .stop-bar-copy strong {
+  display: block;
+  font-size: var(--ap-text-sm);
+  font-weight: 650;
+}
+.ap-stopbar__copy small,
+.ap-app .stop-bar-copy small {
+  display: block;
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+  max-width: 36ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Safety callout ---- */
+.ap-callout,
+.ap-app .safety-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-3) var(--ap-space-4);
+  border-radius: var(--ap-radius-sm);
+  border: 1px solid color-mix(in srgb, var(--ap-success) 28%, transparent);
+  background: var(--ap-success-muted);
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  line-height: var(--ap-leading-relaxed);
+}
+.ap-app .safety-note .icon { color: var(--ap-success); flex-shrink: 0; margin-top: 1px; }
+
+/* ---- Match meter ---- */
+.ap-app .match-meter {
+  height: 6px;
+  border-radius: var(--ap-radius-full);
+  background: var(--ap-bg-muted);
+  overflow: hidden;
+}
+.ap-app .match-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--ap-brand), color-mix(in srgb, var(--ap-brand) 70%, var(--ap-success)));
+  transition: width 0.6s var(--ap-ease-out);
+}
+
+/* ---- Icon sizing ---- */
+.ap-app .icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.ap-app .button:focus-visible,
+.ap-app .icon-button:focus-visible,
+.ap-app input:focus-visible,
+.ap-app select:focus-visible,
+.ap-app textarea:focus-visible {
+  outline: 2px solid var(--ap-brand);
+  outline-offset: 2px;
+}
+
+/* Help & diagnostics (commercial M9-D) — the recent-problem-reports list. */
+.help-diagnostics-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.help-diagnostics-list li {
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--ap-surface-2, rgba(0, 0, 0, 0.04));
+}
+.help-diag-when {
+  font-size: 12px;
+  opacity: 0.65;
+}
+.help-diag-msg {
+  font-size: 13px;
+  word-break: break-word;
+}

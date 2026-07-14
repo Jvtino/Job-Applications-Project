@@ -1,0 +1,30 @@
+{
+  "_comment": "AML / Financial-Crime STARTER employer list for ApplyPilot. Copy to config/targets.json (cp config/targets.aml-starter.json config/targets.json), then run `npm run discover` (or Find jobs in the app) to scan these boards. Every entry is a real fintech/crypto/RegTech that actively hires AML/KYC/sanctions/financial-crime analysts, and each board identifier was observed from a live job posting (job-boards.greenhouse.io/<token>, jobs.ashbyhq.com/<slug>, jobs.lever.co/<site>) — not guessed. Boards do change ATS over time; discovery safely SKIPS any that no longer resolve (logged as a failed source, never fatal), so prune/extend freely. Add your own with `npm run companies -- add <careers-board-url>`. US roles only. Supported vendors: greenhouse | lever | ashby | smartrecruiters | workable | workday.",
+  "targets": [
+    { "name": "Coinbase", "vendor": "greenhouse", "boardId": "coinbase" },
+    { "name": "Gemini", "vendor": "greenhouse", "boardId": "gemini" },
+    { "name": "BitGo", "vendor": "greenhouse", "boardId": "bitgo" },
+    { "name": "Affirm", "vendor": "greenhouse", "boardId": "affirm" },
+    { "name": "EarnIn", "vendor": "greenhouse", "boardId": "earnin" },
+    { "name": "Capital on Tap", "vendor": "greenhouse", "boardId": "capitalontap" },
+    { "name": "Vestwell", "vendor": "greenhouse", "boardId": "vestwell" },
+    { "name": "Marqeta", "vendor": "greenhouse", "boardId": "marqeta" },
+    { "name": "Chime", "vendor": "greenhouse", "boardId": "chime" },
+    { "name": "Chainalysis", "vendor": "ashby", "boardId": "chainalysis-careers" },
+    { "name": "TRM Labs", "vendor": "ashby", "boardId": "trm-labs" },
+    { "name": "Ramp", "vendor": "ashby", "boardId": "ramp" },
+    { "name": "Sardine", "vendor": "ashby", "boardId": "sardine" },
+    { "name": "Anchorage Digital", "vendor": "lever", "boardId": "anchorage" },
+    { "name": "Plaid", "vendor": "lever", "boardId": "plaid" },
+    { "name": "Mercury", "vendor": "greenhouse", "boardId": "mercury" },
+    { "name": "Brex", "vendor": "greenhouse", "boardId": "brex" },
+    { "name": "Cross River Bank", "vendor": "greenhouse", "boardId": "CrossRiverBank" },
+    { "name": "Robinhood", "vendor": "greenhouse", "boardId": "robinhood" },
+    { "name": "Betterment", "vendor": "greenhouse", "boardId": "betterment" },
+    { "name": "Galaxy Digital", "vendor": "greenhouse", "boardId": "galaxydigitalservices" },
+    { "name": "Alloy", "vendor": "greenhouse", "boardId": "Alloy" },
+    { "name": "Novo", "vendor": "greenhouse", "boardId": "novo" },
+    { "name": "FalconX", "vendor": "greenhouse", "boardId": "falconx" },
+    { "name": "Kraken", "vendor": "ashby", "boardId": "kraken.com" }
+  ]
+}

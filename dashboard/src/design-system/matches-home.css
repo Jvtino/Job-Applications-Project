@@ -1,0 +1,299 @@
+/* Matches home — discovery-first layout (post auto-mode removal) */
+
+.ap-app .matches-home {
+  display: grid;
+  gap: var(--ap-space-5);
+}
+
+.ap-app .matches-home .discovered-jobs-panel {
+  padding: var(--ap-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ap-space-4);
+}
+
+.ap-app .matches-home .discovered-jobs-panel .panel-heading {
+  margin-bottom: 0;
+  align-items: center;
+}
+
+/* Hero: copy + visual stage inside console */
+.ap-app .matches-home .hero-console .hero-copy-block {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ap-space-3);
+  z-index: 1;
+}
+
+.ap-app .matches-home .hero-console .matches-visual {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+}
+
+.ap-app .matches-home .hero-console .hero-metrics {
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 1;
+}
+
+.ap-app .matches-visual {
+  position: relative;
+  min-height: 220px;
+  border-radius: var(--ap-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--ap-border);
+  background: var(--ap-bg-subtle);
+}
+
+.ap-app .matches-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+}
+
+.ap-app .matches-visual.is-live {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ap-brand) 35%, transparent);
+}
+
+.ap-app .matches-visual__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--ap-space-2);
+  padding: var(--ap-space-4);
+  background: linear-gradient(180deg, transparent 20%, color-mix(in srgb, var(--ap-bg) 88%, transparent));
+}
+
+.ap-app .matches-visual__phase {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ap-space-2);
+  width: fit-content;
+  padding: var(--ap-space-1) var(--ap-space-3);
+  border-radius: var(--ap-radius-full);
+  background: color-mix(in srgb, var(--ap-bg-elevated) 92%, transparent);
+  border: 1px solid var(--ap-border);
+  font-size: var(--ap-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ap-brand);
+}
+
+.ap-app .matches-visual__message {
+  margin: 0;
+  font-size: var(--ap-text-sm);
+  color: var(--ap-text);
+  line-height: var(--ap-leading-relaxed);
+  max-width: 36ch;
+}
+
+/* Sidebar quick queue */
+.ap-app .matches-sidebar {
+  padding: var(--ap-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ap-space-3);
+  min-height: 360px;
+}
+
+.ap-app .matches-sidebar .queue-list {
+  flex: 1;
+  max-height: none;
+}
+
+.ap-app .match-job-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--ap-space-3);
+  align-items: start;
+  padding: var(--ap-space-4);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-md);
+  background: var(--ap-bg-elevated);
+  transition: transform var(--ap-duration-base) var(--ap-ease-out), border-color var(--ap-duration-base) ease, box-shadow var(--ap-duration-base) ease;
+}
+
+.ap-app .match-job-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ap-border-strong);
+  box-shadow: var(--ap-shadow-sm);
+}
+
+.ap-app .match-job-card__main {
+  min-width: 0;
+}
+
+.ap-app .match-job-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ap-space-3);
+  margin-bottom: var(--ap-space-1);
+}
+
+.ap-app .match-job-card__head strong {
+  font-size: var(--ap-text-base);
+  font-weight: 650;
+  line-height: var(--ap-leading-tight);
+}
+
+.ap-app .match-job-card__meta {
+  display: block;
+  font-size: var(--ap-text-xs);
+  color: var(--ap-text-tertiary);
+  margin-bottom: var(--ap-space-2);
+}
+
+.ap-app .match-job-card__rationale {
+  margin: 0;
+  font-size: var(--ap-text-sm);
+  color: var(--ap-text-secondary);
+  line-height: var(--ap-leading-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ap-app .match-job-card__knockouts {
+  margin: var(--ap-space-2) 0 0;
+  padding: var(--ap-space-1) var(--ap-space-2);
+  border-radius: var(--ap-radius-sm);
+  background: var(--ap-warning-muted);
+  border: 1px solid color-mix(in srgb, var(--ap-warning) 25%, transparent);
+  font-size: var(--ap-text-xs);
+  color: var(--ap-warning);
+}
+
+.ap-app .match-job-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--ap-space-2);
+  flex-shrink: 0;
+}
+
+.ap-app .match-job-card__link {
+  font-size: var(--ap-text-xs);
+  font-weight: 600;
+  color: var(--ap-brand);
+  text-decoration: none;
+}
+
+.ap-app .match-job-card__link:hover {
+  text-decoration: underline;
+}
+
+.ap-app .match-job-list {
+  display: grid;
+  gap: var(--ap-space-3);
+}
+
+.ap-app .matches-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-8) var(--ap-space-5);
+  border-radius: var(--ap-radius-md);
+  border: 1px dashed var(--ap-border);
+  background: var(--ap-bg-subtle);
+}
+
+.ap-app .matches-empty__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--ap-radius-full);
+  background: var(--ap-brand-muted);
+  color: var(--ap-brand);
+}
+
+.ap-app .matches-empty h3 {
+  margin: 0;
+  font-size: var(--ap-text-lg);
+}
+
+.ap-app .matches-empty p {
+  margin: 0;
+  max-width: 42ch;
+  color: var(--ap-text-secondary);
+  font-size: var(--ap-text-sm);
+  line-height: var(--ap-leading-relaxed);
+}
+
+.ap-app .matches-empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--ap-space-2);
+  margin-top: var(--ap-space-2);
+}
+
+.ap-app .fit-badge--high {
+  background: var(--ap-success-muted);
+  color: var(--ap-success);
+  border: 1px solid color-mix(in srgb, var(--ap-success) 25%, transparent);
+}
+
+.ap-app .fit-badge--mid {
+  background: var(--ap-brand-muted);
+  color: var(--ap-brand);
+  border: 1px solid color-mix(in srgb, var(--ap-brand) 25%, transparent);
+}
+
+@media (max-width: 1080px) {
+  .ap-app .matches-home .hero-console .matches-visual {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 180px;
+  }
+  .ap-app .matches-home .hero-console .hero-metrics {
+    grid-row: 3;
+  }
+  .ap-app .match-job-card {
+    grid-template-columns: auto 1fr;
+  }
+  .ap-app .match-job-card__actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+/* Off-platform surfacing controls (employer-ATS-only toggle + assisted LinkedIn/Indeed search). */
+.ap-app .offplatform-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-3) var(--ap-space-4);
+  margin-bottom: var(--ap-space-4);
+  border: 1px solid var(--ap-border, rgba(148, 163, 184, 0.25));
+  border-radius: var(--ap-radius-3, 12px);
+  background: var(--ap-surface-2, rgba(148, 163, 184, 0.06));
+}
+.ap-app .offplatform-toggle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 4px var(--ap-space-2);
+  cursor: pointer;
+}
+.ap-app .offplatform-toggle input { grid-row: span 2; }
+.ap-app .offplatform-toggle small {
+  grid-column: 2;
+  color: var(--ap-text-muted, #64748b);
+  font-size: 12px;
+}

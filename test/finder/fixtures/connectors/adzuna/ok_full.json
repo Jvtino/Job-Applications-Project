@@ -1,0 +1,29 @@
+{
+  "count": 2,
+  "results": [
+    {
+      "id": "4455661122",
+      "title": "KYC Analyst",
+      "description": "Banking compliance team seeks a KYC Analyst with AML and OFAC sanctions screening experience.",
+      "redirect_url": "https://www.adzuna.com/details/4455661122",
+      "created": "2026-07-03T10:00:00Z",
+      "salary_min": 82000,
+      "salary_max": 98000,
+      "contract_time": "full_time",
+      "company": { "display_name": "Meridian Bank" },
+      "location": { "display_name": "New York, NY" }
+    },
+    {
+      "id": "4455661133",
+      "title": "Remote Compliance Analyst",
+      "description": "Fintech compliance role. Transaction monitoring and CDD reviews.",
+      "redirect_url": "https://www.adzuna.com/details/4455661133",
+      "created": "2026-07-04T10:00:00Z",
+      "salary_min": 90000,
+      "salary_max": 110000,
+      "contract_time": "full_time",
+      "company": { "display_name": "Corebank Fintech" },
+      "location": { "display_name": "Remote (US)" }
+    }
+  ]
+}

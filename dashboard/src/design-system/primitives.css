@@ -1,0 +1,228 @@
+/* =====================================================================
+   ApplyPilot — shared primitives that the apx system was missing:
+   Table (sortable), Drawer, Modal, LiveActivity, plus detail-view helpers
+   (key/value lists, diff rows). Built on the global --ap-* tokens so they
+   theme correctly even inside the body-portaled overlays.
+   Loaded after redesign.css.
+   ===================================================================== */
+
+/* ---------------------------------------------------------- Button surfaces */
+/* Let a metric / card render as a real <button> without losing the card look. */
+button.apx-card,
+button.apx-metric {
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+.apx-metric.is-interactive {
+  transition: transform var(--ap-duration-base) var(--ap-ease-out), box-shadow var(--ap-duration-base),
+    border-color var(--ap-duration-base);
+}
+.apx-metric.is-interactive:hover { transform: translateY(-2px); box-shadow: var(--ap-shadow-md); border-color: var(--ap-border-strong); }
+.apx-metric.is-interactive:focus-visible { outline: none; box-shadow: var(--ap-ring); }
+.apx-card.apx-metric.is-active,
+.apx-metric.is-active { border-color: var(--ap-brand); box-shadow: 0 0 0 1px var(--ap-brand) inset; }
+
+/* Pulsing status dot for "running" states. */
+.apx-badge.is-pulsing::before { animation: apx-pulse 1.6s var(--ap-ease-out) infinite; }
+
+/* ------------------------------------------------------------------ Table */
+.apx-table-wrap {
+  width: 100%;
+  border: 1px solid var(--ap-border);
+  border-radius: var(--apx-radius, 16px);
+  overflow: hidden;
+  background: var(--ap-bg-elevated);
+}
+.apx-table-wrap[style*="overflow"] { overflow-x: auto; }
+.apx-table { width: 100%; border-collapse: collapse; font-size: var(--ap-text-sm); }
+.apx-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--ap-bg-subtle);
+  border-bottom: 1px solid var(--ap-border);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: var(--ap-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ap-text-tertiary);
+  white-space: nowrap;
+}
+.apx-table th.is-right, .apx-table td.is-right { text-align: right; }
+.apx-table th.is-center, .apx-table td.is-center { text-align: center; }
+.apx-th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.apx-th-sort:hover { color: var(--ap-text-secondary); }
+.apx-th-sort:focus-visible { outline: none; box-shadow: var(--ap-ring); border-radius: 6px; }
+.apx-sort-ind { font-size: 0.75rem; opacity: 0.5; }
+.apx-sort-ind.is-active { opacity: 1; color: var(--ap-brand); }
+.apx-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--ap-border);
+  color: var(--ap-text);
+  vertical-align: middle;
+}
+.apx-table.is-dense tbody td { padding: 8px 14px; }
+.apx-table tbody tr:last-child td { border-bottom: none; }
+.apx-table tbody tr.is-row-clickable { cursor: pointer; transition: background var(--ap-duration-fast); }
+.apx-table tbody tr.is-row-clickable:hover { background: var(--ap-bg-subtle); }
+.apx-table tbody tr.is-row-clickable:focus-visible { outline: none; box-shadow: var(--ap-ring); }
+.apx-table tbody tr.is-muted { opacity: 0.6; }
+.apx-td-ellipsis { max-width: 22ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.apx-td-strong { font-weight: 650; }
+.apx-td-num { font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- Overlay */
+.apx-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  background: color-mix(in srgb, #0f172a 42%, transparent);
+  backdrop-filter: blur(2px);
+  animation: apx-overlay-in var(--ap-duration-fast) var(--ap-ease-out) both;
+}
+.apx-overlay.is-drawer { justify-content: flex-end; }
+.apx-overlay.is-modal { align-items: center; justify-content: center; padding: var(--ap-space-5); }
+@keyframes apx-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ----------------------------------------------------------------- Drawer */
+.apx-drawer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 94vw;
+  background: var(--ap-bg-elevated);
+  border-left: 1px solid var(--ap-border);
+  box-shadow: var(--ap-shadow-xl);
+  animation: apx-drawer-in var(--ap-duration-base) var(--ap-ease-out) both;
+}
+@keyframes apx-drawer-in { from { transform: translateX(24px); opacity: 0.4; } to { transform: none; opacity: 1; } }
+.apx-drawer-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ap-space-3);
+  padding: var(--ap-space-5) var(--ap-space-6);
+  border-bottom: 1px solid var(--ap-border);
+}
+.apx-drawer-titles { min-width: 0; }
+.apx-drawer-titlerow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.apx-drawer-title { margin: 2px 0 0; font-size: var(--ap-text-xl); font-weight: 750; letter-spacing: var(--ap-tracking-tight); color: var(--ap-text); }
+.apx-drawer-sub { margin: 4px 0 0; font-size: var(--ap-text-sm); color: var(--ap-text-secondary); }
+.apx-drawer-close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--ap-border);
+  border-radius: 10px;
+  background: var(--ap-bg-elevated);
+  color: var(--ap-text-secondary);
+  cursor: pointer;
+  transition: background var(--ap-duration-fast), color var(--ap-duration-fast);
+}
+.apx-drawer-close:hover { background: var(--ap-bg-subtle); color: var(--ap-text); }
+.apx-drawer-close:focus-visible { outline: none; box-shadow: var(--ap-ring); }
+.apx-drawer-close svg { width: 17px; height: 17px; }
+.apx-drawer-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: var(--ap-space-4) var(--ap-space-6); border-bottom: 1px solid var(--ap-border); }
+.apx-drawer-body { flex: 1; overflow-y: auto; padding: var(--ap-space-6); display: flex; flex-direction: column; gap: var(--apx-gap, 20px); }
+.apx-drawer-foot { padding: var(--ap-space-4) var(--ap-space-6); border-top: 1px solid var(--ap-border); display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ------------------------------------------------------------------ Modal */
+.apx-modal {
+  display: flex;
+  flex-direction: column;
+  max-height: 88vh;
+  background: var(--ap-bg-elevated);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--apx-radius, 18px);
+  box-shadow: var(--ap-shadow-xl);
+  animation: apx-modal-in var(--ap-duration-base) var(--ap-ease-spring) both;
+}
+@keyframes apx-modal-in { from { transform: translateY(8px) scale(0.98); opacity: 0; } to { transform: none; opacity: 1; } }
+.apx-modal-head { padding: var(--ap-space-5) var(--ap-space-6) 0; }
+.apx-modal-title { margin: 3px 0 0; font-size: var(--ap-text-lg); font-weight: 750; }
+.apx-modal-body { padding: var(--ap-space-4) var(--ap-space-6); overflow-y: auto; }
+.apx-modal-actions { padding: var(--ap-space-4) var(--ap-space-6); border-top: 1px solid var(--ap-border); display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ----------------------------------------------------------- LiveActivity */
+.apx-live {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--ap-border);
+  border-radius: 14px;
+  background: var(--ap-bg-elevated);
+  padding: 14px 16px;
+}
+.apx-live.is-full { padding: 16px 18px; }
+.apx-live.is-active { border-color: color-mix(in srgb, var(--ap-info) 36%, var(--ap-border)); background: color-mix(in srgb, var(--ap-info) 6%, var(--ap-bg-elevated)); }
+.apx-live.kind-filling.is-active { border-color: color-mix(in srgb, var(--ap-brand) 36%, var(--ap-border)); background: color-mix(in srgb, var(--ap-brand) 6%, var(--ap-bg-elevated)); }
+.apx-live.is-clickable { cursor: pointer; font-family: inherit; transition: box-shadow var(--ap-duration-fast), transform var(--ap-duration-fast); }
+.apx-live.is-clickable:hover { box-shadow: var(--ap-shadow-sm); transform: translateY(-1px); }
+.apx-live.is-clickable:focus-visible { outline: none; box-shadow: var(--ap-ring); }
+.apx-live-icon { position: relative; display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 12px; background: var(--apx-tint-blue, color-mix(in srgb, var(--ap-info) 12%, var(--ap-bg-elevated))); color: var(--ap-info); }
+.apx-live.kind-filling .apx-live-icon { background: var(--apx-tint-brand, color-mix(in srgb, var(--ap-brand) 12%, var(--ap-bg-elevated))); color: var(--ap-brand); }
+.apx-live-icon svg { width: 20px; height: 20px; }
+.apx-live-dot { position: absolute; top: -2px; right: -2px; width: 11px; height: 11px; border-radius: 50%; background: var(--ap-info); border: 2px solid var(--ap-bg-elevated); }
+.apx-live.kind-filling .apx-live-dot { background: var(--ap-brand); }
+.apx-live.is-active .apx-live-dot { animation: apx-pulse 1.6s var(--ap-ease-out) infinite; color: var(--ap-info); }
+.apx-live.kind-filling.is-active .apx-live-dot { color: var(--ap-brand); }
+.apx-live-dot.is-idle { position: static; width: 9px; height: 9px; border: none; background: var(--ap-text-tertiary); flex: none; }
+.apx-live.is-idle { background: var(--ap-bg-subtle); border-style: dashed; }
+.apx-live-main { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.apx-live-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.apx-live-stage { font-size: var(--ap-text-sm); font-weight: 700; color: var(--ap-text); }
+.apx-live-elapsed { font-size: var(--ap-text-xs); font-weight: 600; color: var(--ap-text-tertiary); font-variant-numeric: tabular-nums; flex: none; }
+.apx-live-who { font-size: var(--ap-text-sm); color: var(--ap-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.apx-live-detail { font-size: var(--ap-text-xs); color: var(--ap-text-tertiary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ------------------------------------------------- Detail-view helpers */
+/* Key/value list for drawers: label left, value right, wraps gracefully. */
+.apx-kv { display: flex; flex-direction: column; gap: 0; margin: 0; }
+.apx-kv > div { display: grid; grid-template-columns: minmax(120px, 38%) 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--ap-border); }
+.apx-kv > div:last-child { border-bottom: none; }
+.apx-kv dt { margin: 0; font-size: var(--ap-text-xs); font-weight: 600; color: var(--ap-text-tertiary); }
+.apx-kv dd { margin: 0; font-size: var(--ap-text-sm); color: var(--ap-text); word-break: break-word; }
+.apx-kv dd.is-mono { font-family: var(--ap-font-mono); font-size: var(--ap-text-xs); }
+.apx-kv dd.is-empty { color: var(--ap-text-tertiary); font-style: italic; }
+
+/* Section label inside a drawer/card. */
+.apx-section-title { font-size: var(--ap-text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ap-text-tertiary); margin: 0 0 10px; }
+.apx-subcard { border: 1px solid var(--ap-border); border-radius: 12px; padding: 14px; background: var(--ap-bg-subtle); }
+
+/* Filled-answer diff rows (Applications). */
+.apx-answers { display: flex; flex-direction: column; gap: 8px; }
+.apx-answer { border: 1px solid var(--ap-border); border-radius: 12px; padding: 11px 13px; background: var(--ap-bg-elevated); }
+.apx-answer.is-flagged { border-color: color-mix(in srgb, var(--ap-warning) 38%, var(--ap-border)); background: color-mix(in srgb, var(--ap-warning) 7%, var(--ap-bg-elevated)); }
+.apx-answer.is-pending { border-color: color-mix(in srgb, var(--ap-info) 32%, var(--ap-border)); background: color-mix(in srgb, var(--ap-info) 6%, var(--ap-bg-elevated)); }
+.apx-answer-q { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: var(--ap-text-xs); font-weight: 600; color: var(--ap-text-tertiary); }
+.apx-answer-a { margin: 4px 0 0; font-size: var(--ap-text-sm); color: var(--ap-text); word-break: break-word; }
+.apx-answer-note { margin: 5px 0 0; font-size: var(--ap-text-xs); color: var(--ap-text-secondary); }
+.apx-answer-redacted { font-style: italic; color: var(--ap-text-tertiary); }
+
+/* Compact inline stat strip (e.g., aggregate stats above a table). */
+.apx-stat-strip { display: flex; flex-wrap: wrap; gap: var(--apx-gap, 20px); }
+.apx-stat-strip > div { display: flex; flex-direction: column; gap: 2px; }
+.apx-stat-strip strong { font-size: var(--ap-text-2xl); font-weight: 750; line-height: 1; font-variant-numeric: tabular-nums; }
+.apx-stat-strip span { font-size: var(--ap-text-xs); color: var(--ap-text-tertiary); font-weight: 600; }

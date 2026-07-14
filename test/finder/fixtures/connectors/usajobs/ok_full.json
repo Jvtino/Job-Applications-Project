@@ -1,0 +1,53 @@
+{
+  "SearchResult": {
+    "SearchResultCount": 2,
+    "SearchResultItems": [
+      {
+        "MatchedObjectId": "800001",
+        "MatchedObjectDescriptor": {
+          "PositionID": "ST-12345",
+          "PositionTitle": "Program Analyst",
+          "PositionURI": "https://www.usajobs.gov/job/800001",
+          "ApplyURI": ["https://www.usajobs.gov/job/800001/apply"],
+          "OrganizationName": "Department of Transportation",
+          "DepartmentName": "Department of Transportation",
+          "PositionLocationDisplay": "Washington, DC",
+          "PositionRemuneration": [
+            { "MinimumRange": "95000", "MaximumRange": "115000", "RateIntervalCode": "Per Year" }
+          ],
+          "PublicationStartDate": "2026-07-01",
+          "PositionSchedule": [{ "Name": "Full-time" }],
+          "UserArea": {
+            "Details": {
+              "JobSummary": "Support policy analysis, budget management, and records management for a federal program office.",
+              "TeleworkEligible": true,
+              "RemoteIndicator": false
+            }
+          }
+        }
+      },
+      {
+        "MatchedObjectId": "800002",
+        "MatchedObjectDescriptor": {
+          "PositionID": "ST-67890",
+          "PositionTitle": "Grants Management Specialist",
+          "PositionURI": "https://www.usajobs.gov/job/800002",
+          "ApplyURI": ["https://www.usajobs.gov/job/800002/apply"],
+          "OrganizationName": "General Services Administration",
+          "PositionLocationDisplay": "Remote",
+          "PositionRemuneration": [
+            { "MinimumRange": "85000", "MaximumRange": "100000", "RateIntervalCode": "Per Year" }
+          ],
+          "PublicationStartDate": "2026-07-05",
+          "PositionSchedule": [{ "Name": "Full-time" }],
+          "UserArea": {
+            "Details": {
+              "JobSummary": "Grant writing and grants administration for federal programs.",
+              "RemoteIndicator": true
+            }
+          }
+        }
+      }
+    ]
+  }
+}

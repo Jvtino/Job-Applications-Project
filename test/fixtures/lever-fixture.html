@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Operations Analyst - Acme | Lever</title></head>
+  <body>
+    <!-- Lever-shaped apply form. Detected as LEVER (not Greenhouse) via REAL Lever markers only:
+         .application-form, [data-qa="application-form"], and action*=lever.co — no synthetic hint.
+         It deliberately avoids Greenhouse's #first_name + #email signature so pickAdapter
+         (Greenhouse -> Lever -> Ashby) lands on Lever. Every field maps to a USER-CONFIRMED value
+         (no free-text, no self-ID), so the shared field engine fills it cleanly. -->
+    <div class="content-wrapper posting-page">
+      <div class="section-wrapper page-full-width">
+        <h2 class="posting-header">Operations Analyst</h2>
+        <form class="application-form" data-qa="application-form" method="POST"
+              action="https://jobs.lever.co/acme/00000000-0000-0000-0000-000000000000/apply">
+          <div class="application-field"><label for="lev_first">First Name *</label><input id="lev_first" name="cards[name][first]" type="text" required /></div>
+          <div class="application-field"><label for="lev_last">Last Name *</label><input id="lev_last" name="cards[name][last]" type="text" required /></div>
+          <div class="application-field"><label for="lev_email">Email *</label><input id="lev_email" name="email" type="email" required /></div>
+          <div class="application-field"><label for="lev_phone">Phone</label><input id="lev_phone" name="phone" type="tel" /></div>
+          <div class="application-field">
+            <label for="lev_auth">Are you authorized to work in the United States? *</label>
+            <select id="lev_auth" name="cards[auth][work]" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <div class="application-field">
+            <label for="lev_age">Are you at least 18 years of age? *</label>
+            <select id="lev_age" name="cards[auth][age]" required><option value="">Select...</option><option>Yes</option><option>No</option></select>
+          </div>
+          <button type="submit" id="btn-submit" class="template-btn-submit">Submit application</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      window.__submitted = false;
+      document.querySelector("form.application-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.__submitted = true;
+      });
+    </script>
+  </body>
+</html>
